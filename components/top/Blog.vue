@@ -1,0 +1,103 @@
+<template>
+  <section class="blog">
+    <div class="inner blog__inner">
+      <div class="blog__titleContainer">
+        <ModulesSectionTitle />
+      </div>
+      <div class="blog__cards">
+        <BlogCard v-for="content in data.contents" :content="content"/>
+      </div>
+
+      <div class="blog__button">
+        <ModulesButton />
+      </div>
+      
+    </div>
+  </section>
+</template>
+
+<script setup>
+  const lowerMainViewTitle = 'ブログ'
+  const lowerMainViewTitleRuby = 'BLOG'
+  provide('lowerMainViewTitle', lowerMainViewTitle)
+  provide('lowerMainViewTitleRuby', lowerMainViewTitleRuby)
+
+  const buttonText = '記事一覧を見る'
+  const buttonSlug = '/blog'
+  provide('buttonText', buttonText)
+  provide('buttonSlug', buttonSlug)
+
+  const blogCardCategory = 'SEOライティング'
+  provide('blogCardCategory',blogCardCategory)
+
+
+  const { data } = await useFetch("/blog?limit=3", {
+    baseURL: "https://30leasp9ut.microcms.io/api/v1",
+    headers: {
+      "X-MICROCMS-API-KEY": "7972d8450d564811ab69ecebd5e3dda2bb7d",
+    },
+  });
+
+</script>
+
+<style lang="scss">
+.blog {
+  padding-top: rem(130);
+  padding-bottom: rem(100);
+
+  @include mq(md) {
+    padding-top: rem(200);
+    padding-bottom: rem(120);
+  }
+}
+
+.blog__inner {
+  @include mq(md) {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: auto auto;
+    
+  } 
+  
+
+}
+
+.blog__titleContainer {
+  @include mq(md) {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+}
+
+
+.blog__cards {
+  margin-top: rem(60);
+  display: grid;
+  row-gap: rem(30);
+
+  @include mq(md) {
+    margin-top: rem(130);
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: rem(45);
+    grid-row: 2 / 3;
+    grid-column: 1 / 3;
+  }
+}
+
+
+
+.blog__button {
+  margin-top: rem(75);
+  text-align: right;
+
+  @include mq(md) {
+    margin-top: 0;
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+  }
+}
+
+
+
+
+</style>

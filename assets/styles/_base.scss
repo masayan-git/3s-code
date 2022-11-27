@@ -1,0 +1,123 @@
+
+/*=================================================================================
+# ベースセッティング
+================================================================================= */
+/* リキッドレイアウト対応 */
+html {
+  //~375px
+  @media (max-width: 374px) {
+    font-size: vw(374, 16);
+  }
+
+  //375px~787px
+  font-size: 16px;
+
+  @include mq("md") {
+    font-size: vw(strip-unit($inner), 16);
+  }
+
+  //inner~max-screen
+  @media (min-width: $inner) {
+    font-size: 16px;
+  }
+}
+
+/* pcの電話番号発信対応 */
+a[href^="tel:"] {
+  @include mq("md") {
+    pointer-events: none;
+  }
+}
+
+/* ホバー */
+a {
+  text-decoration: none;
+  color: inherit;
+  
+}
+
+body {
+  font-family: $base-font-family;
+  background-color: $white;
+  font-weight: $normal;
+  color: $t-black;
+}
+
+
+
+////////////////////
+// 非表示設定
+////////////////////
+
+//768px以上を表示
+.is-pc {
+  display: none;
+  @include mq("md") {
+    display: block;
+  }
+}
+
+//モバイルのみ表示
+.is-sp {
+  @include mq("md") {
+    display: none;
+  }
+}
+
+//改行候補
+.indent {
+  display: inline-block;
+}
+
+/*=================================================================================
+# inner
+================================================================================= */
+.inner {
+  width: 100%;
+  padding-right: $padding-sp;
+  padding-left: $padding-sp;
+  margin-right: auto;
+  margin-left: auto;
+  @include mq("md") {
+    max-width: $inner + strip-unit($padding-pc) * 2;
+    padding-right: $padding-pc;
+    padding-left: $padding-pc;
+  }
+}
+
+.sp-inner {
+  @include mq(sp) {
+    width: 100%;
+    padding-right: $padding-sp;
+    padding-left: $padding-sp;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.wideInner {
+  width: 100%;
+  padding-right: $padding-sp;
+  padding-left: $padding-sp;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include mq(md) {
+    max-width: $wideInner + strip-unit($padding-pc) * 2;
+    padding-right: $padding-pc;
+    padding-left: $padding-pc;
+  }
+}
+
+.minInner {
+  width: 100%;
+  padding-right: $padding-sp;
+  padding-left: $padding-sp;
+  margin-right: auto;
+  margin-left: auto;
+  @include mq("md") {
+    max-width: 820px + strip-unit($padding-pc) * 2;
+    padding-right: $padding-pc;
+    padding-left: $padding-pc;
+  }
+}
