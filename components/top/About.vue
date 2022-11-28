@@ -9,7 +9,7 @@
           <div class="aboutMessage__inner">
             <div class="aboutMessage__imageArea">
               <div class="about__image">
-                <img src="top/about1.jpg" alt="">
+                <img src="/top/about1.jpg" alt="">
               </div>
             </div>
             <div class="aboutMessage__content">
@@ -30,7 +30,7 @@
           <div class="aboutPromise__inner">
             <div class="aboutPromise__imageArea">
               <div class="about__image">
-                <img src="top/about2.jpg" alt="">
+                <img src="/top/about2.jpg" alt="">
               </div>
             </div>
             <div class="aboutPromise__contents">

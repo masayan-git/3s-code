@@ -100,7 +100,7 @@
   display: block;
   width: rem(24);
   height: rem(19);
-  background-image: url("@/public/top/contact-icon.svg");
+  background-image: url("/top/contact-icon.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

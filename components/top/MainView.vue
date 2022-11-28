@@ -57,7 +57,7 @@
   @include mq(md) {
     aspect-ratio: 500 / 532;
     width: rem(500);
-    background-image: url("@/public/top/triangle-right-pc.png");
+    background-image: url("/top/triangle-right-pc.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -72,7 +72,7 @@
   display: block;
   aspect-ratio: 500 / 532;
   width: rem(500);
-  background-image: url("@/public/top/triangle-right-pc.png");
+  background-image: url("/top/triangle-right-pc.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -85,7 +85,7 @@
 .mainView__subIcon {
   aspect-ratio: 246 / 250;
   width: rem(246);
-  background-image: url("@/public/top/triangle-left-sp.png");
+  background-image: url("/top/triangle-left-sp.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -97,7 +97,7 @@
   @include mq(md) {
     aspect-ratio: 500 / 532;
     width: rem(500);
-    background-image: url("@/public/top/triangle-left-pc.png");
+    background-image: url("/top/triangle-left-pc.png");
     right: calc(50% - rem(930));
     top: rem(-230);
     
@@ -148,7 +148,7 @@
 .mainView__mainIcon {
   aspect-ratio: 256 / 260;
   width: rem(256);
-  background-image: url("@/public/top/main-icon-sp.png");
+  background-image: url("/top/main-icon-sp.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -157,7 +157,7 @@
   bottom: rem(30);
 
   @include mq(md) {
-    background-image: url("@/public/top/main-icon-pc.png");
+    background-image: url("/top/main-icon-pc.png");
     width: 100%;
     // height: rem(532);
     background-size: contain;
