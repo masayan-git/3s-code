@@ -1,6 +1,6 @@
 FROM node:16-bullseye-slim
 
-WORKDIR /pages
+WORKDIR /
 
 COPY package.json package-lock.json ./
 RUN npm install
