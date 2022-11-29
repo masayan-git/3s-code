@@ -58,12 +58,13 @@
   provide('buttonText', buttonText)
   provide('buttonSlug', buttonSlug)
 
+  const config = useRuntimeConfig()
   const route = useRoute();
   const slug = route.params.slug;
   const { data: content } = await useFetch(`/works/${slug}`, {
-    baseURL: "https://30leasp9ut.microcms.io/api/v1/",
+    baseURL: config.serviceDomain,
     headers: {
-      "X-MICROCMS-API-KEY": "7972d8450d564811ab69ecebd5e3dda2bb7d",
+      "X-MICROCMS-API-KEY": config.apiKey,
     },
   });
   

@@ -17,6 +17,7 @@
 </template>
 
 <script setup>
+  const config = useRuntimeConfig()
   const lowerMainViewTitle = 'ブログ'
   const lowerMainViewTitleRuby = 'BLOG'
   provide('lowerMainViewTitle', lowerMainViewTitle)
@@ -27,14 +28,10 @@
   provide('buttonText', buttonText)
   provide('buttonSlug', buttonSlug)
 
-  const blogCardCategory = 'SEOライティング'
-  provide('blogCardCategory',blogCardCategory)
-
-
   const { data } = await useFetch("/blog?limit=3", {
-    baseURL: "https://30leasp9ut.microcms.io/api/v1",
+    baseURL: config.serviceDomain,
     headers: {
-      "X-MICROCMS-API-KEY": "7972d8450d564811ab69ecebd5e3dda2bb7d",
+      "X-MICROCMS-API-KEY": config.apiKey,
     },
   });
 

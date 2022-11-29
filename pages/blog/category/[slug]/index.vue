@@ -12,23 +12,22 @@
   layout: false
  })
 
+  const config = useRuntimeConfig()
   const route = useRoute();
   const slug = route.params.slug;
 
   const { data:contents } = await useFetch(`/blog?filters=category[equals]${slug};limit=1000`, {
-    baseURL: "https://30leasp9ut.microcms.io/api/v1",
+    baseURL: config.serviceDomain,
     headers: {
-      "X-MICROCMS-API-KEY": "7972d8450d564811ab69ecebd5e3dda2bb7d",
+      "X-MICROCMS-API-KEY": config.apiKey,
     },
   });
   const { data:category } = await useFetch(`/categories/${slug}`, {
-    baseURL: "https://30leasp9ut.microcms.io/api/v1",
+    baseURL: config.serviceDomain,
     headers: {
-      "X-MICROCMS-API-KEY": "7972d8450d564811ab69ecebd5e3dda2bb7d",
+      "X-MICROCMS-API-KEY": config.apiKey,
     },
   });
-
-
 
   const contentsObj = contents.value.contents
   const content = []
@@ -37,13 +36,5 @@
       content.push(contentsObj[i])
     }
   }
-  
-
-
-
-
- 
-
-
 
 </script>

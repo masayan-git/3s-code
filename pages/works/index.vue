@@ -14,10 +14,11 @@
 </template>
 
 <script setup>
+  const config = useRuntimeConfig()
   const { data } = await useFetch("/works?limit=100", {
-    baseURL: "https://30leasp9ut.microcms.io/api/v1",
+    baseURL: config.serviceDomain,
     headers: {
-      "X-MICROCMS-API-KEY": "7972d8450d564811ab69ecebd5e3dda2bb7d",
+      "X-MICROCMS-API-KEY": config.apiKey,
     },
   });
   const worksCount = ref(9)
@@ -25,7 +26,6 @@
     const worksCard = data.value.contents
     return worksCard.slice(0, worksCount.value)
   })
-  console.log(data.value.contents)
 
   const worksIsMore = () => {
     worksCount.value += 6

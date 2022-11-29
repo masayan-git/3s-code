@@ -39,29 +39,29 @@ provide('blogCardCategory',blogCardCategory)
 
 
 
-
+const config = useRuntimeConfig()
 const route = useRoute();
 const slug = route.params.slug;
 const { data: content } = await useFetch(`/blog/${slug}`, {
-  baseURL: "https://30leasp9ut.microcms.io/api/v1/",
+  baseURL: config.serviceDomain,
   headers: {
-    "X-MICROCMS-API-KEY": "7972d8450d564811ab69ecebd5e3dda2bb7d",
+    "X-MICROCMS-API-KEY": config.apiKey,
   },
 });
 const publishedAt = content.value.publishedAt
 const publishedDate = publishedAt.substring(0, publishedAt.indexOf("T")).replace( /-/g, '.' )
 
 const { data: prev } = await useFetch(`/blog?orders=publishedAt;filters=publishedAt[less_than]${content.value.publishedAt};limit=1`, {
-  baseURL: "https://30leasp9ut.microcms.io/api/v1/",
+  baseURL: config.serviceDomain,
   headers: {
-    "X-MICROCMS-API-KEY": "7972d8450d564811ab69ecebd5e3dda2bb7d",
+    "X-MICROCMS-API-KEY": config.apiKey,
   },
 });
 
 const { data: next } = await useFetch(`/blog?orders=publishedAt;filters=publishedAt[greater_than]${content.value.publishedAt};limit=1`, {
-  baseURL: "https://30leasp9ut.microcms.io/api/v1/",
+  baseURL: config.serviceDomain,
   headers: {
-    "X-MICROCMS-API-KEY": "7972d8450d564811ab69ecebd5e3dda2bb7d",
+    "X-MICROCMS-API-KEY": config.apiKey,
   },
 });
 

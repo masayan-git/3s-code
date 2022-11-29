@@ -16,6 +16,7 @@
 </template>
 
 <script setup>
+  const config = useRuntimeConfig()
   const lowerMainViewTitle = '制作実績'
   const lowerMainViewTitleRuby = 'WORKS'
   provide('lowerMainViewTitle', lowerMainViewTitle)
@@ -30,11 +31,12 @@
 
   //microCMSから引っ張ってきた記事情報
   const { data } = await useFetch("/works?limit=3", {
-    baseURL: "https://30leasp9ut.microcms.io/api/v1",
+    baseURL: config.serviceDomain,
     headers: {
-      "X-MICROCMS-API-KEY": "7972d8450d564811ab69ecebd5e3dda2bb7d",
+      "X-MICROCMS-API-KEY": config.apiKey,
     },
   });
+  
   
   
 </script>
