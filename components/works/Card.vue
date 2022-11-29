@@ -10,7 +10,7 @@
       </div>
       <p>{{content.content.id}}</p>
     </a> -->
-    <nuxt-link :to="`/works/${content.content.id}`" class="works__cardLink">
+    <NuxtLink :to="`/works/${content.content.id}`" class="works__cardLink">
       <div class="works__cardImage">
         <img :src=content.content.eyecatch.url alt="">
       </div>
@@ -19,7 +19,7 @@
         <p class="works__cardTextUrl">{{content.content.url}}</p>
       </div>
       <p>{{content.content.content}}</p>
-    </nuxt-link>
+    </NuxtLink>
   </article>
 </template>
 

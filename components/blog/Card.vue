@@ -1,6 +1,6 @@
 <template>
   <article class="blog__card">
-    <nuxt-link :to="`/blog/${content.content.id}`" class="blog__cardLink">
+    <NuxtLink :to="`/blog/${content.content.id}`" class="blog__cardLink">
       <div class="blog__cardImage">
         <img :src="content.content.eyecatch.url" alt="">
       </div>
@@ -11,7 +11,7 @@
         </div>
         <p class="blog__cardText">{{cardDescriptionText}}</p>
       </div>
-    </nuxt-link>
+    </NuxtLink>
   </article>
 </template>
 

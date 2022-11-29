@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="returnButtonSlug" class="returnButton">{{returnButtonText}}<span></span></nuxt-link>
+  <NuxtLink :to="returnButtonSlug" class="returnButton">{{returnButtonText}}<span></span></NuxtLink>
   
 </template>
 

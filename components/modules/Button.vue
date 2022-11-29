@@ -1,12 +1,8 @@
 <template>
-  <nuxt-link :to=buttonSlug class="button">{{buttonText}}<span></span></nuxt-link>
+  <NuxtLink :to=buttonSlug class="button">{{buttonText}}<span></span></NuxtLink>
 </template>
 
 <script setup>
-// const buttonProps = defineProps({
-//   text: String,
-// })
-
 const buttonText = inject('buttonText')
 const buttonSlug = inject('buttonSlug')
 </script>
