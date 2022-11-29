@@ -12,6 +12,7 @@
     "sass": "^1.55.0"
   },
   "dependencies": {
-    "nuxt-microcms-module": "^2.0.1"
+    "nuxt-microcms-module": "^2.0.1",
+    "vue3-smooth-scroll": "^0.8.1"
   }
 }

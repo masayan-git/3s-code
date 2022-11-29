@@ -6,10 +6,10 @@
         <p class="contact__description">Webコーディング業務の<br class="is-sp">お問い合わせはこちら</p>
         <p class="contact__note">お気軽にご相談ください。24時間以内に返答させていただきます。</p>
         <div class="contact__buttonArea">
-          <a href="" class="contact__button">
+          <NuxtLink to="/contact" class="contact__button">
             <span class="contact__buttonIcon"></span>
             <span class="contact__buttonText">お問い合わせする</span>
-          </a>
+          </NuxtLink>
         </div>
       </div>
     </div>

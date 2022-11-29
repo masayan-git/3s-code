@@ -1,5 +1,5 @@
 <template>
-  <div class="price">
+  <section id="price" class="price">
     <div class="inner">
       <ModulesSectionTitle />
       <div class="price__card">
@@ -13,7 +13,7 @@
       </div>
       <p class="price__note">※ 内容や量によって、価格が変動いたします。デザイン料は含まれておりません。</p>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>

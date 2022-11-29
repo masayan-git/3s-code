@@ -2,13 +2,13 @@
   <header class="header" :class="{header__active:isActive}">
     <div class="inner header__inner">
       <nav class="header__nav">
-        <h1 class="header__title">3Scode</h1>
+        <h1 class="header__title"><NuxtLink to="/">3Scode</NuxtLink></h1>
         <ul class="header__navLists">
-          <li class="header__navList"><a href="" class="header__navLink">3S codeについて</a></li>
-          <li class="header__navList"><a href="" class="header__navLink">サービス</a></li>
-          <li class="header__navList"><a href="" class="header__navLink">制作実績</a></li>
-          <li class="header__navList"><a href="" class="header__navLink">料金</a></li>
-          <li class="header__navList"><a href="" class="header__navLink">ブログ</a></li>
+          <li class="header__navList"><NuxtLink to="/#about" class="header__navLink">3S codeについて</NuxtLink></li>
+          <li class="header__navList"><NuxtLink to="/#service" class="header__navLink">サービス</NuxtLink></li>
+          <li class="header__navList"><NuxtLink to="/works" class="header__navLink">制作実績</NuxtLink></li>
+          <li class="header__navList"><NuxtLink to="/#price" class="header__navLink">料金</NuxtLink></li>
+          <li class="header__navList"><NuxtLink to="/blog" class="header__navLink">ブログ</NuxtLink></li>
           <li class="header__navList"><NuxtLink to="/contact" class="header__navLink header__navLink--button">お問い合わせ</NuxtLink></li>
         </ul>
         <button @click="isActive = !isActive" class="header__button">

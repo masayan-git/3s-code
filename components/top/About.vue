@@ -1,5 +1,5 @@
 <template>
-  <section class="about">
+  <section id="about" class="about">
       <span class="mainView__subIconRight"></span>
       <div class="about__inner">
         <div class="about__sectionTitleInner">

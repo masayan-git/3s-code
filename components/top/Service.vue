@@ -1,6 +1,6 @@
 <template>
 
-  <section class="service">
+  <section  id="service" class="service">
     <div class="inner">
       <ModulesSectionTitle />
       <div class="service__cards">
