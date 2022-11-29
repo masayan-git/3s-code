@@ -7,21 +7,20 @@
         <h1 class="blogSingle__articleTitle">{{content.title}}</h1>
         <time class="blogSingle__time">{{publishedDate}}</time>
         <div class="blogSingle__articleImage">
-          <img src="@/public/top/noimage1.png" alt="">
+          <img :src="content.eyecatch.url" alt="">
         </div>
         <!-- eslint-disable-next-line -->
         <div v-html="content.content" class="blogSingle__articleContent">
         </div>
-        <div class="blogSingle__articleTagArea">
+        <!-- <div class="blogSingle__articleTagArea">
           <a href="" class="sideBar__tagItemLink">デザイン</a>
           <a href="" class="sideBar__tagItemLink">デザイン</a>
-        </div>
+        </div> -->
       </article>
     </div>
     <div class="blogSingle__pageNation">
       <div class="blogSingle__pageNationReturnArea">
         <ModulesReturnButton v-if="prev.totalCount != 0"/>
-      
       </div>
       <div class="blogSingle__pageNationNextArea">
         <ModulesButton v-if="next.totalCount != 0"/>
