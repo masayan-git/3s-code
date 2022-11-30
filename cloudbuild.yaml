@@ -15,6 +15,11 @@ steps:
     args: ['push', 'gcr.io/$PROJECT_ID/site3score/default:v1']
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
-    args: ['run', 'deploy', 'site-3scode', '--image', 'gcr.io/$PROJECT_ID/site3score/default:v1']
-  images:
-  - gcr.io/$PROJECT_ID/site3score/default:v1
+    args:
+      [
+        'run',
+        'deploy',
+        'site-3scode',
+        '--image',
+        'gcr.io/$PROJECT_ID/site3score/default:v1'
+      ]
