@@ -3,10 +3,10 @@
     <TopMainView />
     <TopAbout />
     <TopService />
-    <!-- <TopWorks /> -->
+    <TopWorks />
     <TopPrice />
     <TopContact />
-    <!-- <TopBlog /> -->
+    <TopBlog />
   </NuxtLayout>
 </template>
 
