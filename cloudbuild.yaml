@@ -13,17 +13,3 @@ steps:
       ]
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/site3score/default:v3']
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: gcloud
-    args:
-      [
-        'run',
-        'deploy',
-        'site-3scode',
-        '--image',
-        'gcr.io/$PROJECT_ID/site3score/default:v3',
-        '--region',
-        'asia-northeast1-a'
-      ]
-images:
-  - gcr.io/$PROJECT_ID/site3score/default:v3
