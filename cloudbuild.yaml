@@ -21,7 +21,9 @@ steps:
         'deploy',
         'site-3scode',
         '--image',
-        'gcr.io/$PROJECT_ID/site3score/default:v2'
+        'gcr.io/$PROJECT_ID/site3score/default:v1',
+        '--region',
+        'asia-northeast1-a'
       ]
 images:
   - gcr.io/$PROJECT_ID/site3score/default:v2
