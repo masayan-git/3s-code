@@ -26,6 +26,7 @@
   position: relative;
   padding-top: rem(90);
   padding-bottom: rem(90);
+
   @include mq(md) {
     padding-top: rem(170);
     padding-bottom: rem(100);
@@ -53,7 +54,7 @@
 
 .contact__content {
   text-align: center;
- 
+
 }
 
 .contact__description {
@@ -113,6 +114,4 @@
   font-weight: $bold;
   color: $white;
 }
-
-
 </style>

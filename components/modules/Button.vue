@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink :to=buttonSlug class="button">{{buttonText}}<span></span></NuxtLink>
+  <NuxtLink :to=buttonSlug class="button">{{ buttonText }}<span></span></NuxtLink>
 </template>
 
 <script setup>
@@ -44,6 +44,7 @@ const buttonSlug = inject('buttonSlug')
     margin-bottom: auto;
     transform: rotate(-45deg);
   }
+
   span {
     display: block;
     width: rem(60);
@@ -58,5 +59,4 @@ const buttonSlug = inject('buttonSlug')
     margin-bottom: auto;
   }
 }
-
 </style>

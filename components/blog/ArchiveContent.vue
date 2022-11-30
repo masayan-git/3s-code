@@ -1,14 +1,9 @@
 <template>
-  
   <div class="blogContents__cards">
-    
-    <BlogCard v-for="content in cardItems" :content="content"/>
-    
-    
+    <BlogCard v-for="content in cardItems" :content="content" />
     <div class="moreButton">
       <button class="moreButton__button" v-if="(cardItems.length - count) >= 0" @click="isMore">もっとみる</button>
     </div>
-    
   </div>
 </template>
 
@@ -47,10 +42,9 @@ const isMore = () => {
   margin-top: rem(30);
   display: grid;
   row-gap: rem(30);
-  @include mq(md) {
-    .blog__card {
 
-    }
+  @include mq(md) {
+    .blog__card {}
 
     .blog__cardLink {
       display: flex;
@@ -67,17 +61,13 @@ const isMore = () => {
       padding: rem(30);
     }
 
-    .blog__cardTitle {
-
-    }
+    .blog__cardTitle {}
 
     .blog__cardCategoryArea {
       margin-top: rem(5);
     }
 
-    .blog__cardCategory {
-
-    }
+    .blog__cardCategory {}
 
     .blog__cardText {
       margin-top: rem(5);

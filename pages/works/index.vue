@@ -1,35 +1,36 @@
 <template>
-  
+
   <NuxtLayout name="works">
-  <div class="lowerWorks">
-    <div class="inner lowerWorks__inner">
-      <WorksCard v-for="content in worksCardItems" :content=content />
+    <div class="lowerWorks">
+      <div class="inner lowerWorks__inner">
+        <WorksCard v-for="content in worksCardItems" :content=content />
+      </div>
+      <div class="moreButton">
+        <button class="moreButton__button" v-if="(worksCardItems.length - worksCount) >= 0"
+          @click="worksIsMore">もっとみる</button>
+      </div>
     </div>
-    <div class="moreButton">
-      <button class="moreButton__button" v-if="(worksCardItems.length - worksCount) >= 0" @click="worksIsMore">もっとみる</button>
-    </div>
-  </div>
   </NuxtLayout>
-  
+
 </template>
 
 <script setup>
-  const config = useRuntimeConfig()
-  const { data } = await useFetch("/works?limit=100", {
-    baseURL: config.serviceDomain,
-    headers: {
-      "X-MICROCMS-API-KEY": config.apiKey,
-    },
-  });
-  const worksCount = ref(9)
-  const worksCardItems = computed(() => {
-    const worksCard = data.value.contents
-    return worksCard.slice(0, worksCount.value)
-  })
+const config = useRuntimeConfig()
+const { data } = await useFetch("/works?limit=100", {
+  baseURL: config.serviceDomain,
+  headers: {
+    "X-MICROCMS-API-KEY": config.apiKey,
+  },
+});
+const worksCount = ref(9)
+const worksCardItems = computed(() => {
+  const worksCard = data.value.contents
+  return worksCard.slice(0, worksCount.value)
+})
 
-  const worksIsMore = () => {
-    worksCount.value += 6
-  }
+const worksIsMore = () => {
+  worksCount.value += 6
+}
 
 
 </script>
@@ -53,11 +54,9 @@
   margin-top: rem(50);
   padding-bottom: rem(140);
 
-  
-  
   @include mq(md) {
     padding-bottom: rem(260);
-    margin-top: rem(80);    
+    margin-top: rem(80);
   }
 }
 
@@ -66,8 +65,6 @@
   grid-template-columns: repeat(auto-fit, minmax(rem(300), 1fr));
   row-gap: rem(30);
   column-gap: rem(30);
-  
 }
-
 </style>
 

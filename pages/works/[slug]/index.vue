@@ -10,29 +10,31 @@
             </div>
             <div class="worksSingle__articleContent">
               <div class="worksSingle__articleTitleArea">
-                <h1 class="worksSingle__articleTitle">{{content.title}}</h1>
-                <a :href="content.url" class="worksSingle__articleUrl" target="_blank" rel="noopener noreferrer">{{content.url}}</a>
+                <h1 class="worksSingle__articleTitle">{{ content.title }}</h1>
+                <a :href="content.url" class="worksSingle__articleUrl" target="_blank" rel="noopener noreferrer">{{
+                    content.url
+                }}</a>
               </div>
               <div class="worksSingle__articleInfo">
                 <dl>
                   <dt>業種</dt>
-                  <dd>{{content.industry}}</dd>
+                  <dd>{{ content.industry }}</dd>
                 </dl>
                 <dl>
                   <dt>提供サービス</dt>
-                  <dd>{{content.service}}</dd>
+                  <dd>{{ content.service }}</dd>
                 </dl>
                 <dl>
                   <dt>サイト種別</dt>
-                  <dd>{{content.kinds}}</dd>
+                  <dd>{{ content.kinds }}</dd>
                 </dl>
                 <dl>
                   <dt>制作期間</dt>
-                  <dd>{{content.period}}</dd>
+                  <dd>{{ content.period }}</dd>
                 </dl>
                 <dl>
                   <dt>コメント</dt>
-                  <dd>{{content.comment}}</dd>
+                  <dd>{{ content.comment }}</dd>
                 </dl>
               </div>
             </div>
@@ -53,22 +55,22 @@
 </template>
 
 <script setup>
-  const buttonText = '制作実績一覧を見る'
-  const buttonSlug = '/works'
-  provide('buttonText', buttonText)
-  provide('buttonSlug', buttonSlug)
+const buttonText = '制作実績一覧を見る'
+const buttonSlug = '/works'
+provide('buttonText', buttonText)
+provide('buttonSlug', buttonSlug)
 
-  const config = useRuntimeConfig()
-  const route = useRoute();
-  const slug = route.params.slug;
-  const { data: content } = await useFetch(`/works/${slug}`, {
-    baseURL: config.serviceDomain,
-    headers: {
-      "X-MICROCMS-API-KEY": config.apiKey,
-    },
-  });
-  
-  
+const config = useRuntimeConfig()
+const route = useRoute();
+const slug = route.params.slug;
+const { data: content } = await useFetch(`/works/${slug}`, {
+  baseURL: config.serviceDomain,
+  headers: {
+    "X-MICROCMS-API-KEY": config.apiKey,
+  },
+});
+
+
 </script>
 
 
@@ -76,15 +78,14 @@
 .worksSingle {
   margin-top: rem(50);
   padding-bottom: rem(156);
+
   @include mq(md) {
     margin-top: rem(80);
     padding-bottom: rem(260);
   }
 }
 
-.worksSingle__inner {
-
-}
+.worksSingle__inner {}
 
 .worksSingle__article {
   border-radius: 30px;
@@ -101,7 +102,7 @@
   aspect-ratio: 275 / 181;
   width: 100%;
   overflow-y: scroll;
-  
+
   @include mq(md) {
     aspect-ratio: 1000/ 650;
   }
@@ -115,8 +116,7 @@
   }
 }
 
-.worksSingle__articleTitleArea {
-}
+.worksSingle__articleTitleArea {}
 
 .worksSingle__articleTitle {
   font-size: rem(22);
@@ -151,6 +151,7 @@
     line-height: 1;
     border-bottom: 1px solid #707070;
   }
+
   dd {
     padding-top: rem(15);
     font-size: rem(16);
@@ -165,18 +166,22 @@
         grid-row: 1 / 2;
         grid-column: 1 / 2;
       }
+
       &:nth-of-type(2) {
         grid-row: 1 / 2;
         grid-column: 2 / 3;
       }
+
       &:nth-of-type(3) {
         grid-row: 2 / 3;
         grid-column: 1 / 2;
       }
+
       &:nth-of-type(4) {
         grid-row: 2 / 3;
         grid-column: 2 / 3;
       }
+
       &:nth-of-type(5) {
         grid-row: 3 / 4;
         grid-column: 1 / 3;
@@ -184,12 +189,11 @@
 
     }
   }
-
-
 }
 
 .worksSingle__other {
   margin-top: rem(87);
+
   @include mq(md) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -198,8 +202,6 @@
     margin-top: rem(180);
   }
 }
-
-
 
 .worksSingle__otherTitle {
   font-size: rem(22);
@@ -217,6 +219,7 @@
   grid-template-columns: repeat(auto-fit, minmax(rem(300), 1fr));
   row-gap: rem(30);
   column-gap: rem(30);
+
   @include mq(md) {
     margin-top: 0;
     grid-row: 2 / 3;
@@ -227,12 +230,11 @@
 .worksSingle__otherButton {
   margin-top: rem(50);
   text-align: right;
+
   @include mq(md) {
     margin-top: 0;
     grid-row: 1 / 2;
     grid-column: 2 / 3;
   }
 }
-
-
 </style>

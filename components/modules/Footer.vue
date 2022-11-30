@@ -31,7 +31,6 @@
       </div>
     </div>
   </footer>
-
 </template>
 
 <script setup>
@@ -46,7 +45,6 @@
 
 .footer__wrap {
   @include mq(md) {
-    
     display: grid;
     grid-template-columns: 1fr rem(370);
   }
@@ -59,22 +57,18 @@
   padding-bottom: rem(50);
 
   @include mq(md) {
-    padding-top:rem(70);
+    padding-top: rem(70);
     padding-bottom: rem(80);
     padding-left: rem(120);
     padding-right: 0;
-
   }
 }
 
-.footer__logo {
-
-}
+.footer__logo {}
 
 .footer__logoLink {
   font-size: rem(40);
   font-weight: $bold;
-
 }
 
 .footer__nav {
@@ -94,9 +88,7 @@
   }
 }
 
-.footer__navList {
-
-}
+.footer__navList {}
 
 .footer__navLink {
   font-size: rem(16);
@@ -120,12 +112,11 @@
     text-align: center;
     border-radius: 200px 0px 0px 0px;
   }
+
   small {
     font-size: rem(12);
     font-weight: $normal;
     color: $white;
   }
 }
-
-
 </style>

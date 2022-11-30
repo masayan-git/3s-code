@@ -1,17 +1,18 @@
 <template>
-<section class="sideBar">
-  <BlogSideBarProfile />
-  <div class="sideBar__category">
-    <div class="sideBar__categoryInner">
-      <h2 class="sideBar__categoryName">カテゴリー</h2>
-      <ul class="sideBar__categoryItems">
-        <li v-for="category in category.contents" class="sideBar__categoryItem">
-          <NuxtLink :to="`/blog/category/${category.id}`" class="sideBar__categoryItemLink">{{category.name}}</NuxtLink>
-        </li>
-      </ul>
+  <section class="sideBar">
+    <BlogSideBarProfile />
+    <div class="sideBar__category">
+      <div class="sideBar__categoryInner">
+        <h2 class="sideBar__categoryName">カテゴリー</h2>
+        <ul class="sideBar__categoryItems">
+          <li v-for="category in category.contents" class="sideBar__categoryItem">
+            <NuxtLink :to="`/blog/category/${category.id}`" class="sideBar__categoryItemLink">{{ category.name }}
+            </NuxtLink>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-  <!-- <div class="sideBar__category">
+    <!-- <div class="sideBar__category">
     <div class="sideBar__categoryInner">
       <h2 class="sideBar__categoryName">タグ</h2>
       <ul class="sideBar__tagItems">
@@ -30,12 +31,12 @@
       </ul>
     </div>
   </div> -->
-</section>
+  </section>
 </template>
 
 <script setup>
 const config = useRuntimeConfig()
-const { data:category } = await useFetch("/categories", {
+const { data: category } = await useFetch("/categories", {
   baseURL: config.serviceDomain,
   headers: {
     "X-MICROCMS-API-KEY": config.apiKey,
@@ -69,6 +70,7 @@ const { data:category } = await useFetch("/categories", {
   line-height: 1;
   padding-bottom: rem(10);
   position: relative;
+
   &::before {
     content: "";
     width: 100%;
@@ -99,9 +101,7 @@ const { data:category } = await useFetch("/categories", {
   row-gap: rem(30);
 }
 
-.sideBar__categoryItem {
-
-}
+.sideBar__categoryItem {}
 
 .sideBar__categoryItemLink {
   font-size: rem(16);
@@ -126,8 +126,6 @@ const { data:category } = await useFetch("/categories", {
     margin-bottom: auto;
   }
 }
-
-
 
 .sideBar__tagItems {
   margin-top: rem(15);

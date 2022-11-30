@@ -27,14 +27,14 @@
   width: 100%;
   height: rem(650);
   position: relative;
-  
+
   background: transparent linear-gradient(150deg, #E3F4F9 0%, #F5FDFF 100%) 0% 0% no-repeat padding-box;
   overflow: hidden;
 
   @include mq(md) {
     height: rem(900);
   }
-  
+
 }
 
 .mainView__inner {
@@ -42,6 +42,7 @@
   height: 100%;
   width: 100%;
   position: relative;
+
   // z-index: 2;
   @include mq(md) {
     // display: flex;
@@ -64,7 +65,7 @@
     position: absolute;
     top: rem(-230);
     right: calc(50% + rem(420));
-    
+
   }
 }
 
@@ -100,7 +101,7 @@
     background-image: url("/top/triangle-left-pc.png");
     right: calc(50% - rem(930));
     top: rem(-230);
-    
+
   }
 }
 
@@ -108,6 +109,7 @@
   position: absolute;
   top: rem(160);
   z-index: 1;
+
   @include mq(md) {
     position: static;
     padding-left: rem(100);
@@ -116,7 +118,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+
   }
 }
 

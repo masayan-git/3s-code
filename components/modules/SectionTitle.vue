@@ -1,15 +1,14 @@
 
 <template>
-  <h2 :data-ruby=lowerMainViewTitleRuby class="section__title">{{ lowerMainViewTitle}}</h2>
+  <h2 :data-ruby=lowerMainViewTitleRuby class="section__title">{{ lowerMainViewTitle }}</h2>
 </template>
 
 <script setup>
-  const lowerMainViewTitle = inject('lowerMainViewTitle')
-  const lowerMainViewTitleRuby = inject('lowerMainViewTitleRuby')
+const lowerMainViewTitle = inject('lowerMainViewTitle')
+const lowerMainViewTitleRuby = inject('lowerMainViewTitleRuby')
 </script>
 
 <style lang="scss">
-
 //セクションタイトル
 .section__title {
   font-size: rem(16);
@@ -18,6 +17,7 @@
   position: relative;
   z-index: 1;
   letter-spacing: rem(1.7);
+
   &::before {
     content: "";
     display: block;
@@ -53,8 +53,4 @@
     }
   }
 }
-
-
-
-
 </style>

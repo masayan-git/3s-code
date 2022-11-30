@@ -9,9 +9,9 @@
         </div>
         <div class="lowerContact__content">
           <p v-if="errors.company.value">
-            <p v-for="error in errors.company.value">
-              <p>{{error}}</p>
-            </p>
+          <p v-for="error in errors.company.value">
+          <p>{{ error }}</p>
+          </p>
           </p>
           <form @submit.prevent="validate">
             <div class="lowerContact__contentForm">
@@ -20,7 +20,7 @@
                 <input type="text" v-model="contact.company.value" placeholder="個人事業主の方は屋号をご入力ください。">
                 <ul v-if="errors.company.value">
                   <li v-for="error in errors.company.value">
-                    {{error}}
+                    {{ error }}
                   </li>
                 </ul>
               </div>
@@ -38,12 +38,13 @@
               </div>
               <div class="lowerContact__inputText">
                 <p class="lowerContact__inputTitle lowerContact__inputTitle--required">ご相談内容</p>
-                <textarea v-model="contact.content.value" row="30" cols="30" placeholder="お問い合わせやご相談内容をご入力ください。"></textarea>
+                <textarea v-model="contact.content.value" row="30" cols="30"
+                  placeholder="お問い合わせやご相談内容をご入力ください。"></textarea>
                 <p class="lowerContact__note">※詳しく書いていただくとご希望に合ったご提案ができます。</p>
               </div>
             </div>
             <div class="lowerContact__contentButton">
-              <button type="submit"  class="lowerContact__button">入力内容を確認する</button>
+              <button type="submit" class="lowerContact__button">入力内容を確認する</button>
             </div>
           </form>
         </div>
@@ -54,50 +55,42 @@
 </template>
 
 <script setup>
-  const lowerMainViewTitle = 'お問い合わせ'
-  const lowerMainViewTitleRuby = 'CONTACT'
-  provide('lowerMainViewTitle', lowerMainViewTitle)
-  provide('lowerMainViewTitleRuby', lowerMainViewTitleRuby)
+const lowerMainViewTitle = 'お問い合わせ'
+const lowerMainViewTitleRuby = 'CONTACT'
+provide('lowerMainViewTitle', lowerMainViewTitle)
+provide('lowerMainViewTitleRuby', lowerMainViewTitleRuby)
 
-  
-  const contact = {
-    company: ref(''),
-    name: ref(''),
-    email: ref(''),
-    tel: ref(''),
-    content: ref(''),
+
+const contact = {
+  company: ref(''),
+  name: ref(''),
+  email: ref(''),
+  tel: ref(''),
+  content: ref(''),
+}
+
+const errors = {
+  company: ref([]),
+  name: ref([]),
+  email: ref([]),
+  tel: ref([]),
+  content: ref([]),
+}
+
+const validate = () => {
+  const key = Object.keys(errors)
+  console.log(key)
+  Object.keys(errors).forEach((error) => {
+    console.log(error.value)
+  })
+
+  // console.log(errors.company.value[0])
+  if (!contact.company.value) {
+    errors.company.value.push('空白です')
+  } else if (contact.company.value.length > 5) {
+    errors.company.value.push('５文字以内で入力してください')
   }
-
-  const errors = {
-    company: ref([]),
-    name: ref([]),
-    email: ref([]),
-    tel: ref([]),
-    content: ref([]),
-  }
-
-
-  
-
-  const validate = () => {
-    const key = Object.keys(errors)
-    console.log(key)
-    Object.keys(errors).forEach((error) => {
-      console.log(error.value)
-    })
-  
-    // console.log(errors.company.value[0])
-    if (!contact.company.value) {
-      errors.company.value.push('空白です') 
-    }else if (contact.company.value.length > 5) {
-      errors.company.value.push('５文字以内で入力してください') 
-    }
-
-    
-
-  }
-   
-  
+}
 
 </script>
 
@@ -105,21 +98,19 @@
 [v-cloak] {
   display: none;
 }
+
 .lowerContact {
   margin-top: rem(50);
   padding-bottom: rem(50);
+
   @include mq(md) {
     padding-bottom: rem(120);
   }
 }
 
-.lowerContact__inner {
+.lowerContact__inner {}
 
-}
-
-.lowerContact__textArea {
-
-}
+.lowerContact__textArea {}
 
 .lowerContact__text {
   font-size: rem(18);
@@ -154,6 +145,7 @@
     margin-top: rem(10);
     background-color: #F7F6F6;
     padding: rem(15);
+
     @include mq(md) {
       margin-top: rem(15);
     }
@@ -175,8 +167,6 @@
   }
 }
 
-
-
 .lowerContact__inputTitle {
   font-size: rem(16);
   width: fit-content;
@@ -184,6 +174,7 @@
 
 .lowerContact__inputTitle--required {
   position: relative;
+
   &::before {
     content: "必須";
     display: inline-block;
@@ -195,7 +186,7 @@
     position: absolute;
     right: rem(-60);
     top: 50%;
-    transform: translateY(-50%) ;
+    transform: translateY(-50%);
     border-radius: 10px;
   }
 }
@@ -229,7 +220,7 @@
   border-radius: 40px;
   text-align: center;
   letter-spacing: .07em;
-  
+
   @include mq(md) {
     font-size: rem(12);
     max-width: rem(150);
@@ -238,8 +229,4 @@
     padding-bottom: rem(12);
   }
 }
-
-
-
-
 </style>

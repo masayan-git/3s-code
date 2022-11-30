@@ -1,12 +1,12 @@
 <template>
-  <span class="blog__cardCategory">{{category.category.name}}</span>
+  <span class="blog__cardCategory">{{ category.category.name }}</span>
 </template>
 
 <script setup>
-  const category = defineProps({
-    category: Object
-  })
-  
+const category = defineProps({
+  category: Object
+})
+
 </script>
 
 <style lang="scss">

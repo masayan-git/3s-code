@@ -15,10 +15,10 @@
         <img :src=content.content.eyecatch.url alt="">
       </div>
       <div class="works__cardTextArea">
-        <h1 class="works__cardTitle">{{content.content.title}}</h1>
-        <p class="works__cardTextUrl">{{content.content.url}}</p>
+        <h1 class="works__cardTitle">{{ content.content.title }}</h1>
+        <p class="works__cardTextUrl">{{ content.content.url }}</p>
       </div>
-      <p>{{content.content.content}}</p>
+      <p>{{ content.content.content }}</p>
     </NuxtLink>
   </article>
 </template>
@@ -29,8 +29,6 @@
 const content = defineProps({
   content: Object
 })
-
-
 
 </script>
 
@@ -46,7 +44,6 @@ const content = defineProps({
     margin-top: rem(120);
     grid-template-columns: repeat(3, 1fr);
     column-gap: rem(30);
-
   }
 }
 
@@ -62,7 +59,7 @@ const content = defineProps({
 .works__cardImage {
   aspect-ratio: 335 / 230;
   width: 100%;
-  
+
   img {
     height: 100%;
     object-fit: cover;
@@ -84,6 +81,5 @@ const content = defineProps({
 .works__cardTextUrl {
   font-size: rem(12);
   color: $t-blue;
-
 }
 </style>

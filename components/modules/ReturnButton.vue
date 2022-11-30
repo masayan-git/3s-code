@@ -1,13 +1,13 @@
 <template>
-  <NuxtLink :to="returnButtonSlug" class="returnButton">{{returnButtonText}}<span></span></NuxtLink>
-  
+  <NuxtLink :to="returnButtonSlug" class="returnButton">{{ returnButtonText }}<span></span></NuxtLink>
+
 </template>
 
 <script setup>
-  const returnButtonText = inject('returnButtonText')
-  const returnButtonSlug = inject('returnButtonSlug')
+const returnButtonText = inject('returnButtonText')
+const returnButtonSlug = inject('returnButtonSlug')
 
-  
+
 </script>
 
 <style lang="scss">
@@ -62,5 +62,4 @@
     margin-bottom: auto;
   }
 }
-
 </style>

@@ -1,6 +1,6 @@
 <template>
 
-  <section  id="service" class="service">
+  <section id="service" class="service">
     <div class="inner">
       <ModulesSectionTitle />
       <div class="service__cards">
@@ -8,7 +8,9 @@
           <div class="service__cardInner">
             <h1 data-sub-title="SERVICE / 01" class="service__cardTitle">コーディング</h1>
             <div class="service__cardTextArea">
-              <p class="service__cardText">HTML CSS JavaScriptを使用し、デザインカンプからのコーディングを行います。「予測しやすい」「再利用しやすい」「保守しやすい」「拡張しやすい」CSS設計を意識しメンテナンスしやすいコーディングを心がけております。</p>
+              <p class="service__cardText">HTML CSS
+                JavaScriptを使用し、デザインカンプからのコーディングを行います。「予測しやすい」「再利用しやすい」「保守しやすい」「拡張しやすい」CSS設計を意識しメンテナンスしやすいコーディングを心がけております。
+              </p>
             </div>
           </div>
         </article>
@@ -16,7 +18,8 @@
           <div class="service__cardInner">
             <h1 data-sub-title="SERVICE / 02" class="service__cardTitle">WordPress</h1>
             <div class="service__cardTextArea">
-              <p class="service__cardText">カスタム投稿、カスタムフィールド、フォームの実装可能です。<br>クライアント様が利用しやすいよう配慮し実装致します。実装方法のご指示がない場合は私からご提案させて頂きます。</p>
+              <p class="service__cardText">
+                カスタム投稿、カスタムフィールド、フォームの実装可能です。<br>クライアント様が利用しやすいよう配慮し実装致します。実装方法のご指示がない場合は私からご提案させて頂きます。</p>
             </div>
           </div>
         </article>
@@ -35,11 +38,11 @@
 </template>
 
 <script setup>
-  const lowerMainViewTitle = 'サービス'
-  const lowerMainViewTitleRuby = 'SERVICE'
+const lowerMainViewTitle = 'サービス'
+const lowerMainViewTitleRuby = 'SERVICE'
 
-  provide('lowerMainViewTitle', lowerMainViewTitle)
-  provide('lowerMainViewTitleRuby', lowerMainViewTitleRuby)
+provide('lowerMainViewTitle', lowerMainViewTitle)
+provide('lowerMainViewTitleRuby', lowerMainViewTitleRuby)
 </script>
 
 <style lang="scss">
@@ -58,9 +61,9 @@
     padding-bottom: rem(400);
     margin-top: rem(-200);
   }
-  .section__title {
-    
-  }
+
+  .section__title {}
+
   .section__title[data-ruby] {
     &::after {
       color: white;
@@ -71,6 +74,7 @@
     margin-top: rem(50);
     display: grid;
     row-gap: rem(30);
+
     @include mq(md) {
       margin-top: rem(120);
       grid-template-columns: repeat(3, 1fr);
@@ -84,14 +88,13 @@
     box-shadow: 0px 5px 25px #1B6C871A;
 
     @include mq(md) {
-      &:nth-of-type(2) {
-        
-      }
+      &:nth-of-type(2) {}
     }
   }
 
   .service__cardInner {
     padding: rem(35) rem(30) rem(30) rem(30);
+
     @include mq(md) {
       padding: rem(60) rem(50) rem(50) rem(50);
     }
@@ -105,6 +108,7 @@
 
   .service__cardTitle[data-sub-title] {
     position: relative;
+
     &::before {
       content: attr(data-sub-title);
       display: inline-block;
@@ -120,6 +124,7 @@
 
   .service__cardTextArea {
     margin-top: rem(24);
+
     @include mq(md) {
       margin-top: rem(40);
     }
@@ -130,10 +135,5 @@
     line-height: 1.75;
   }
 
-
-
-
-
 }
-
 </style>

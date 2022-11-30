@@ -44,6 +44,7 @@
   overflow: hidden;
   margin-right: auto;
   margin-left: auto;
+
   img {
     object-fit: cover;
     object-position: center;
@@ -64,9 +65,7 @@
   row-gap: rem(30);
 }
 
-.sideBar__profileTextBox {
-
-}
+.sideBar__profileTextBox {}
 
 .sideBar__profileText {
   font-size: rem(16);

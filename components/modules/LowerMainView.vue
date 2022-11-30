@@ -34,5 +34,4 @@
     border-radius: 0px 0px 200px 0px;
   }
 }
-
 </style>

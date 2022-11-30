@@ -5,35 +5,33 @@
         <ModulesSectionTitle />
       </div>
       <div class="blog__cards">
-        <BlogCard v-for="content in data.contents" :content="content"/>
+        <BlogCard v-for="content in data.contents" :content="content" />
       </div>
-
       <div class="blog__button">
         <ModulesButton />
       </div>
-      
     </div>
   </section>
 </template>
 
 <script setup>
-  const config = useRuntimeConfig()
-  const lowerMainViewTitle = 'ブログ'
-  const lowerMainViewTitleRuby = 'BLOG'
-  provide('lowerMainViewTitle', lowerMainViewTitle)
-  provide('lowerMainViewTitleRuby', lowerMainViewTitleRuby)
+const config = useRuntimeConfig()
+const lowerMainViewTitle = 'ブログ'
+const lowerMainViewTitleRuby = 'BLOG'
+provide('lowerMainViewTitle', lowerMainViewTitle)
+provide('lowerMainViewTitleRuby', lowerMainViewTitleRuby)
 
-  const buttonText = '記事一覧を見る'
-  const buttonSlug = '/blog'
-  provide('buttonText', buttonText)
-  provide('buttonSlug', buttonSlug)
+const buttonText = '記事一覧を見る'
+const buttonSlug = '/blog'
+provide('buttonText', buttonText)
+provide('buttonSlug', buttonSlug)
 
-  const { data } = await useFetch("/blog?limit=3", {
-    baseURL: config.serviceDomain,
-    headers: {
-      "X-MICROCMS-API-KEY": config.apiKey,
-    },
-  });
+const { data } = await useFetch("/blog?limit=3", {
+  baseURL: config.serviceDomain,
+  headers: {
+    "X-MICROCMS-API-KEY": config.apiKey,
+  },
+});
 
 </script>
 
@@ -53,10 +51,7 @@
     display: grid;
     grid-template-columns: max-content 1fr;
     grid-template-rows: auto auto;
-    
-  } 
-  
-
+  }
 }
 
 .blog__titleContainer {
@@ -81,8 +76,6 @@
   }
 }
 
-
-
 .blog__button {
   margin-top: rem(75);
   text-align: right;
@@ -93,8 +86,4 @@
     grid-column: 2 / 3;
   }
 }
-
-
-
-
 </style>

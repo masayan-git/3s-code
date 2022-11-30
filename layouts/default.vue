@@ -1,11 +1,11 @@
 <template>
   <div>
-    <NuxtLoadingIndicator /> 
+    <NuxtLoadingIndicator />
     <ModulesHeader />
     <slot />
     <ModulesFooter />
   </div>
-  
+
 </template>
 
 <script setup>

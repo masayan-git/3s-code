@@ -1,11 +1,10 @@
 <template>
   <NuxtLayout name="blog">
-    
     <div class="blogSingle">
       <article class="blogSingle__article">
-        <BlogCardCategory :category="content.category"/>
-        <h1 class="blogSingle__articleTitle">{{content.title}}</h1>
-        <time class="blogSingle__time">{{publishedDate}}</time>
+        <BlogCardCategory :category="content.category" />
+        <h1 class="blogSingle__articleTitle">{{ content.title }}</h1>
+        <time class="blogSingle__time">{{ publishedDate }}</time>
         <div class="blogSingle__articleImage">
           <img :src="content.eyecatch.url" alt="">
         </div>
@@ -20,23 +19,19 @@
     </div>
     <div class="blogSingle__pageNation">
       <div class="blogSingle__pageNationReturnArea">
-        <ModulesReturnButton v-if="prev.totalCount != 0"/>
+        <ModulesReturnButton v-if="prev.totalCount != 0" />
       </div>
       <div class="blogSingle__pageNationNextArea">
-        <ModulesButton v-if="next.totalCount != 0"/>
+        <ModulesButton v-if="next.totalCount != 0" />
       </div>
     </div>
   </NuxtLayout>
-
 </template>
 
 <script setup>
 
 const blogCardCategory = 'SEOライティング'
-provide('blogCardCategory',blogCardCategory)
-
-
-
+provide('blogCardCategory', blogCardCategory)
 
 const config = useRuntimeConfig()
 const route = useRoute();
@@ -48,7 +43,7 @@ const { data: content } = await useFetch(`/blog/${slug}`, {
   },
 });
 const publishedAt = content.value.publishedAt
-const publishedDate = publishedAt.substring(0, publishedAt.indexOf("T")).replace( /-/g, '.' )
+const publishedDate = publishedAt.substring(0, publishedAt.indexOf("T")).replace(/-/g, '.')
 
 const { data: prev } = await useFetch(`/blog?orders=publishedAt;filters=publishedAt[less_than]${content.value.publishedAt};limit=1`, {
   baseURL: config.serviceDomain,
@@ -66,32 +61,29 @@ const { data: next } = await useFetch(`/blog?orders=publishedAt;filters=publishe
 
 
 const returnButtonText = '前の記事'
-provide('returnButtonText',returnButtonText)
+provide('returnButtonText', returnButtonText)
 
 if (prev.value.contents[0] != null) {
   const returnButtonSlug = `/blog/${prev.value.contents[0].id}`
-  provide('returnButtonSlug',returnButtonSlug)
+  provide('returnButtonSlug', returnButtonSlug)
 }
 
 const buttonText = '次の記事'
-provide('buttonText',buttonText)
+provide('buttonText', buttonText)
 
 if (next.value.contents[0] != null) {
   const buttonSlug = `/blog/${next.value.contents[0].id}`
-  provide('buttonSlug',buttonSlug)
+  provide('buttonSlug', buttonSlug)
 
 }
-
-
 
 </script>
 
 <style lang="scss">
-
 .blogSingle__pageNation {
   margin-top: rem(70);
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
 
   @include mq(md) {
     margin-top: rem(105);
@@ -110,13 +102,9 @@ if (next.value.contents[0] != null) {
   padding: rem(30);
   box-shadow: 0px 5px 25px #1B6C871A;
   border-radius: 30px;
-
-
 }
 
-.blogSingle__article {
-
-}
+.blogSingle__article {}
 
 .blogSingle__articleTitle {
   margin-top: rem(10);
@@ -128,7 +116,6 @@ if (next.value.contents[0] != null) {
     font-size: rem(32);
     line-height: 1.18;
   }
-
 }
 
 .blogSingle__time {
@@ -139,16 +126,16 @@ if (next.value.contents[0] != null) {
   font-size: rem(13);
   color: #666666;
   font-weight: $bold;
-
-
 }
 
 .blogSingle__articleImage {
   aspect-ratio: 275 / 179;
   margin-top: rem(10);
+
   @include mq(md) {
     aspect-ratio: 700 / 490;
   }
+
   img {
     height: 100%;
     object-fit: cover;
@@ -173,6 +160,7 @@ if (next.value.contents[0] != null) {
       font-size: rem(22);
       padding: rem(15) rem(15) rem(18) rem(50);
     }
+
     &::before {
       content: "";
       display: block;
@@ -238,7 +226,8 @@ if (next.value.contents[0] != null) {
     }
   }
 
-  p,i {
+  p,
+  i {
     font-size: rem(15);
     font-weight: $normal;
     line-height: 2;
@@ -279,6 +268,7 @@ if (next.value.contents[0] != null) {
     @include mq(md) {
       padding: rem(25);
     }
+
     li {
       padding-left: rem(35);
       font-size: rem(14);
@@ -289,6 +279,7 @@ if (next.value.contents[0] != null) {
         font-size: rem(16);
         padding-left: rem(50);
       }
+
       &::before {
         font-size: rem(7);
         color: $white;
@@ -311,46 +302,55 @@ if (next.value.contents[0] != null) {
           top: rem(2);
         }
       }
+
       &:nth-of-type(1) {
         &::before {
           content: "1";
         }
       }
+
       &:nth-of-type(2) {
         &::before {
           content: "2";
         }
       }
+
       &:nth-of-type(3) {
         &::before {
           content: "3";
         }
       }
+
       &:nth-of-type(4) {
         &::before {
           content: "4";
         }
       }
+
       &:nth-of-type(5) {
         &::before {
           content: "5";
         }
       }
+
       &:nth-of-type(6) {
         &::before {
           content: "6";
         }
       }
+
       &:nth-of-type(7) {
         &::before {
           content: "7";
         }
       }
+
       &:nth-of-type(8) {
         &::before {
           content: "8";
         }
       }
+
       &:nth-of-type(9) {
         &::before {
           content: "9";
@@ -367,20 +367,24 @@ if (next.value.contents[0] != null) {
     row-gap: rem(10);
     margin-top: rem(20);
     margin-bottom: rem(20);
+
     @include mq(md) {
       padding: rem(25);
 
     }
+
     li {
       padding-left: rem(23);
       font-size: rem(14);
       line-height: 2;
       font-weight: $normal;
       position: relative;
+
       @include mq(md) {
         padding-left: rem(27);
         font-size: rem(16);
       }
+
       &::before {
         content: "";
         display: block;
@@ -391,6 +395,7 @@ if (next.value.contents[0] != null) {
         position: absolute;
         left: 0;
         top: rem(10);
+
         @include mq(md) {
           top: rem(12);
         }
@@ -411,6 +416,4 @@ if (next.value.contents[0] != null) {
     margin-top: rem(30);
   }
 }
-
-
 </style>

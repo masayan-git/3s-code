@@ -1,5 +1,5 @@
 <template>
-  <NuxtLoadingIndicator /> 
+  <NuxtLoadingIndicator />
   <ModulesHeader />
   <ModulesLowerMainView />
   <main class="blogContents">
@@ -10,16 +10,15 @@
       <BlogSideBar />
     </div>
   </main>
-  
   <ModulesFooter />
 </template>
 
 <script setup>
-  const lowerMainViewTitle = 'ブログ'
-  const lowerMainViewTitleRuby = 'BLOG'
+const lowerMainViewTitle = 'ブログ'
+const lowerMainViewTitleRuby = 'BLOG'
 
-  provide('lowerMainViewTitle', lowerMainViewTitle)
-  provide('lowerMainViewTitleRuby', lowerMainViewTitleRuby)
+provide('lowerMainViewTitle', lowerMainViewTitle)
+provide('lowerMainViewTitleRuby', lowerMainViewTitleRuby)
 </script>
 
 <style lang="scss">
@@ -29,6 +28,7 @@
     grid-column: 1 / 2;
   }
 }
+
 .blogContents {
   padding-bottom: rem(120);
 }

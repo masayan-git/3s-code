@@ -1,5 +1,4 @@
 <template>
-  
   <NuxtLayout name="default">
     <TopMainView />
     <TopAbout />
@@ -9,16 +8,8 @@
     <TopContact />
     <TopBlog />
   </NuxtLayout>
-  
 </template>
 
 <script setup>
-  
-  
-  
-  
 
-  
-  
-  
 </script>

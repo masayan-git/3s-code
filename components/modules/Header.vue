@@ -1,15 +1,29 @@
 <template>
-  <header class="header" :class="{header__active:isActive}">
+  <header class="header" :class="{ header__active: isActive }">
     <div class="inner header__inner">
       <nav class="header__nav">
-        <h1 class="header__title"><NuxtLink to="/">3Scode</NuxtLink></h1>
+        <h1 class="header__title">
+          <NuxtLink to="/">3Scode</NuxtLink>
+        </h1>
         <ul class="header__navLists">
-          <li class="header__navList"><NuxtLink to="/#about" class="header__navLink">3S codeについて</NuxtLink></li>
-          <li class="header__navList"><NuxtLink to="/#service" class="header__navLink">サービス</NuxtLink></li>
-          <li class="header__navList"><NuxtLink to="/works" class="header__navLink">制作実績</NuxtLink></li>
-          <li class="header__navList"><NuxtLink to="/#price" class="header__navLink">料金</NuxtLink></li>
-          <li class="header__navList"><NuxtLink to="/blog" class="header__navLink">ブログ</NuxtLink></li>
-          <li class="header__navList"><NuxtLink to="/contact" class="header__navLink header__navLink--button">お問い合わせ</NuxtLink></li>
+          <li class="header__navList">
+            <NuxtLink to="/#about" class="header__navLink">3S codeについて</NuxtLink>
+          </li>
+          <li class="header__navList">
+            <NuxtLink to="/#service" class="header__navLink">サービス</NuxtLink>
+          </li>
+          <li class="header__navList">
+            <NuxtLink to="/works" class="header__navLink">制作実績</NuxtLink>
+          </li>
+          <li class="header__navList">
+            <NuxtLink to="/#price" class="header__navLink">料金</NuxtLink>
+          </li>
+          <li class="header__navList">
+            <NuxtLink to="/blog" class="header__navLink">ブログ</NuxtLink>
+          </li>
+          <li class="header__navList">
+            <NuxtLink to="/contact" class="header__navLink header__navLink--button">お問い合わせ</NuxtLink>
+          </li>
         </ul>
         <button @click="isActive = !isActive" class="header__button">
           <span class="header__buttonLine"></span>
@@ -22,7 +36,7 @@
 </template>
 
 <script setup>
-  const isActive = ref(false)
+const isActive = ref(false)
 
 </script>
 
@@ -32,14 +46,13 @@
   z-index: 999;
   width: 100%;
   top: 20px;
+
   @include mq(md) {
     position: fixed;
   }
 }
 
-.header__inner {
-  
-}
+.header__inner {}
 
 .header__nav {
   width: 100%;
@@ -62,6 +75,7 @@
   font-weight: $bold;
   line-height: 1;
   font-family: $alphabet-font-family-2;
+
   @include mq(sp) {
     position: fixed;
     top: 42px;
@@ -81,7 +95,7 @@
     height: 100vh;
     background-color: $sub-color;
     padding-top: rem(160);
-    
+
     visibility: hidden;
     opacity: 0;
     transition: .3s;
@@ -97,22 +111,23 @@
 .header__navList {
   @include mq(sp) {
     text-align: center;
-    & + & {
+
+    &+& {
       margin-top: rem(25);
     }
-    
+
   }
 }
 
 .header__navLink {
-  
+
   font-size: rem(15);
   font-weight: $bold;
   color: $t-blue;
   letter-spacing: rem(0.6);
   display: inline-block;
-    
-  
+
+
   @include mq(md) {
     letter-spacing: .04em;
   }
@@ -121,6 +136,7 @@
 .header__navLink--button {
   color: $white;
   background-color: $accent-color;
+
   @include mq(sp) {
     width: rem(275);
     height: rem(50);
@@ -151,7 +167,7 @@
   @include mq(md) {
     display: none;
   }
-  
+
 }
 
 .header__buttonLine {
@@ -181,30 +197,32 @@
   &:nth-of-type(3) {
     bottom: rem(25);
   }
-  
+
 }
 
 .header__active {
+
   //ボタン
   .header__buttonLine {
     transition: .3s;
+
     &:nth-of-type(1) {
       top: rem(33);
       left: rem(-1);
       transform: rotate(-45deg);
-      
+
     }
 
     &:nth-of-type(2) {
       display: none;
-      
+
     }
 
     &:nth-of-type(3) {
       left: 0;
       bottom: rem(37);
       transform: rotate(45deg);
-      
+
     }
   }
 
@@ -216,9 +234,8 @@
     }
   }
 
-  
+
 
 
 }
-
 </style>

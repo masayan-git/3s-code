@@ -5,11 +5,11 @@
         <img :src="content.content.eyecatch.url" alt="">
       </div>
       <div class="blog__cardContent">
-        <h1 class="blog__cardTitle">{{content.content.title}}</h1>
+        <h1 class="blog__cardTitle">{{ content.content.title }}</h1>
         <div class="blog__cardCategoryArea">
-          <BlogCardCategory :category="content.content.category"/>
+          <BlogCardCategory :category="content.content.category" />
         </div>
-        <p class="blog__cardText">{{cardDescriptionText}}</p>
+        <p class="blog__cardText">{{ cardDescriptionText }}</p>
       </div>
     </NuxtLink>
   </article>
@@ -21,7 +21,7 @@ const content = defineProps({
 })
 
 const cardDescriptionHtml = content.content.content
-const cardDescriptionText = cardDescriptionHtml.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'').substring(0,58).concat('…')
+const cardDescriptionText = cardDescriptionHtml.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '').substring(0, 58).concat('…')
 
 
 </script>
@@ -40,14 +40,15 @@ const cardDescriptionText = cardDescriptionHtml.replace(/<("[^"]*"|'[^']*'|[^'">
 .blog__cardImage {
   aspect-ratio: 335 / 235;
   width: 100%;
-  
+
   @include mq(md) {
     aspect-ratio: 370 / 260;
   }
+
   img {
     height: 100%;
     object-fit: cover;
-    
+
   }
 }
 
@@ -64,8 +65,6 @@ const cardDescriptionText = cardDescriptionHtml.replace(/<("[^"]*"|'[^']*'|[^'">
 .blog__cardCategoryArea {
   margin-top: rem(25);
 }
-
-
 
 .blog__cardText {
   margin-top: rem(15);
