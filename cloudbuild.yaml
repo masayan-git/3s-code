@@ -1,22 +1,13 @@
 steps:
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
     args:
       [
-        'build',
-        '-t',
-        'gcr.io/$PROJECT_ID/site3score/default:v1',
-        '--build-arg',
-        'API_KEY=$_API_KEY',
-        '--build-arg',
-        'SERVICE_DOMAIN=$_SERVICE_DOMAIN',
-        '.'
+        'run',
+        'deploy',
+        '$_SERVICE_NAME',
+        '--image',
+        'gcr.io/$PROJECT_ID/site3score/default:v1'
       ]
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/site3score/default:v1']
-  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
-    args:
-      - run
-      - deploy
-      - $_SERVICE_NAME
-      - '--platform=managed'
-      - '--image=gcr.io/$PROJECT_ID/site3score/default:v1'
+images:
+  - gcr.io/$PROJECT_ID/site3score/default:v1
