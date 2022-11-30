@@ -14,4 +14,4 @@ ENV PORT=8080
 
 RUN npm run build
 
-CMD [ "npm", "run", "start" ]
+CMD [ "npm", "run", "dev" ]
