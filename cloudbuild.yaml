@@ -5,6 +5,10 @@ steps:
       - '--no-cache'
       - '-t'
       - '$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA'
+      - '--build-arg'
+      - 'API_KEY=$_API_KEY'
+      - '--build-arg'
+      - 'SERVICE_DOMAIN=$_SERVICE_DOMAIN'
       - .
       - '-f'
       - Dockerfile
