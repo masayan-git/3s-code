@@ -3,37 +3,36 @@
     <div class="lowerContact">
       <div class="minInner lowerContact__inner">
         <div class="lowerContact__textArea">
-          <p class="lowerContact__text">3Scodeにご関心をお持ちいただきまして、ありがとうございます。</p>
-          <p class="lowerContact__text">お見積りやサービスに関するお問い合わせ、ご相談はこちらから承っております。</p>
-          <p class="lowerContact__text">24時間以内に返答させていただきます。</p>
+          <p class="lowerContact__text">以下の内容で送信します。</p>
+          <p class="lowerContact__text">内容をご確認いただき、よろしければ送信ボタンを押してください。</p>
         </div>
         <div class="lowerContact__content">
           <form>
             <div class="lowerContact__contentForm">
               <div class="lowerContact__inputText">
                 <p class="lowerContact__inputTitle lowerContact__inputTitle--required">会社名</p>
-                <input type="text" v-model="formData.company" placeholder="個人事業主の方は屋号をご入力ください。">
+                <p class="lowerContact__confirmText">{{ formData.company }}</p>
               </div>
               <div class="lowerContact__inputText">
                 <p class="lowerContact__inputTitle lowerContact__inputTitle--required">ご担当社名</p>
-                <input type="text" v-model="formData.name" placeholder="例）山田太郎">
+                <p class="lowerContact__confirmText">{{ formData.name }}</p>
               </div>
               <div class="lowerContact__inputText">
                 <p class="lowerContact__inputTitle lowerContact__inputTitle--required">メールアドレス</p>
-                <input type="email" v-model="formData.email" placeholder="例）contact@3scode.co.jp">
+                <p class="lowerContact__confirmText">{{ formData.email }}</p>
               </div>
               <div class="lowerContact__inputText">
                 <p class="lowerContact__inputTitle lowerContact__inputTitle--required">電話番号</p>
-                <input type="tel" v-model="formData.tel" placeholder="例）080-1234-5678">
+                <p class="lowerContact__confirmText">{{ formData.email }}</p>
               </div>
               <div class="lowerContact__inputText">
                 <p class="lowerContact__inputTitle lowerContact__inputTitle--required">ご相談内容</p>
-                <textarea v-model="formData.content" row="30" cols="30" placeholder="お問い合わせやご相談内容をご入力ください。"></textarea>
-                <p class="lowerContact__note">※詳しく書いていただくとご希望に合ったご提案ができます。</p>
+                <p class="lowerContact__confirmText">{{ formData.content }}</p>
               </div>
             </div>
             <div class="lowerContact__contentButton">
-              <NuxtLink to="/contact/confirm" class="lowerContact__button">入力内容を確認する</NuxtLink>
+              <NuxtLink to="/contact" class="lowerContact__button lowerContact__button--return">入力画面に戻る</NuxtLink>
+              <button type="submit" class="lowerContact__button">送信</button>
             </div>
           </form>
         </div>
@@ -44,19 +43,29 @@
 </template>
 
 <script setup lang="ts">
-
-const lowerMainViewTitle: string = 'お問い合わせ'
-const lowerMainViewTitleRuby: string = 'CONTACT'
+definePageMeta({
+  middleware: ['form'],
+})
+const lowerMainViewTitle = 'お問い合わせ'
+const lowerMainViewTitleRuby = 'CONTACT'
 provide('lowerMainViewTitle', lowerMainViewTitle)
 provide('lowerMainViewTitleRuby', lowerMainViewTitleRuby)
 
 const formData = formState();
+
 
 </script>
 
 <style lang="scss">
 [v-cloak] {
   display: none;
+}
+
+.lowerContact__confirmText {
+  font-size: rem(16);
+  color: #666666;
+  margin-top: rem(18);
+  line-height: 2;
 }
 
 .lowerContact {
@@ -164,6 +173,9 @@ const formData = formState();
 .lowerContact__contentButton {
   margin-top: rem(30);
   text-align: center;
+  display: flex;
+  justify-content: center;
+  column-gap: 30px;
 }
 
 .lowerContact__button {

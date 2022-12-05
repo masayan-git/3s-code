@@ -9,7 +9,7 @@
         <WorksCard v-for="content in data.contents" :content="content" />
       </div>
       <div class="works__button">
-        <ModulesButton text="実績一覧を見る" />
+        <ModulesButton />
       </div>
     </div>
   </div>
