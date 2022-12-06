@@ -21,6 +21,7 @@
     "sass": "^1.55.0"
   },
   "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
     "@vee-validate/i18n": "^4.7.3",
     "@vee-validate/rules": "^4.7.3",
     "nuxt-microcms-module": "^2.0.1",
