@@ -8,34 +8,47 @@
           <p class="lowerContact__text">24時間以内に返答させていただきます。</p>
         </div>
         <div class="lowerContact__content">
-          <form>
+          <Form :validation-schema="schema">
             <div class="lowerContact__contentForm">
               <div class="lowerContact__inputText">
                 <p class="lowerContact__inputTitle lowerContact__inputTitle--required">会社名</p>
-                <input type="text" v-model="formData.company" placeholder="個人事業主の方は屋号をご入力ください。">
+                <!-- <input type="text" v-model="formData.company" placeholder="個人事業主の方は屋号をご入力ください。"> -->
+                <Field type="text" name="company" v-model="formData.company" placeholder="個人事業主の方は屋号をご入力ください。" />
+                <ErrorMessage class="error" name="company" />
               </div>
               <div class="lowerContact__inputText">
                 <p class="lowerContact__inputTitle lowerContact__inputTitle--required">ご担当社名</p>
-                <input type="text" v-model="formData.name" placeholder="例）山田太郎">
+                <!-- <input type="text" v-model="formData.name" placeholder="例）山田太郎"> -->
+                <Field type="text" name="name" v-model="formData.name" placeholder="例）山田太郎" />
+                <ErrorMessage class="error" name="name" />
               </div>
               <div class="lowerContact__inputText">
                 <p class="lowerContact__inputTitle lowerContact__inputTitle--required">メールアドレス</p>
-                <input type="email" v-model="formData.email" placeholder="例）contact@3scode.co.jp">
+                <!-- <input type="email" v-model="formData.email" placeholder="例）contact@3scode.co.jp"> -->
+                <Field type="email" name="email" v-model="formData.email" placeholder="例）contact@3scode.co.jp" />
+                <ErrorMessage class="error" name="email" />
               </div>
               <div class="lowerContact__inputText">
                 <p class="lowerContact__inputTitle lowerContact__inputTitle--required">電話番号</p>
-                <input type="tel" v-model="formData.tel" placeholder="例）080-1234-5678">
+                <!-- <input type="tel" v-model="formData.tel" placeholder="例）080-1234-5678"> -->
+                <Field type="tel" name="tel" v-model="formData.tel" placeholder="例）080-1234-5678" />
+                <ErrorMessage class="error" name="tel" />
               </div>
               <div class="lowerContact__inputText">
                 <p class="lowerContact__inputTitle lowerContact__inputTitle--required">ご相談内容</p>
-                <textarea v-model="formData.content" row="30" cols="30" placeholder="お問い合わせやご相談内容をご入力ください。"></textarea>
+                <!-- <textarea v-model="formData.content" row="30" cols="30" placeholder="お問い合わせやご相談内容をご入力ください。"></textarea> -->
+                <Field as="textarea" row="30" cols="30" name="content" v-model="formData.content"
+                  placeholder="お問い合わせやご相談内容をご入力ください。" />
+                <ErrorMessage class="error" name="content" />
+
                 <p class="lowerContact__note">※詳しく書いていただくとご希望に合ったご提案ができます。</p>
               </div>
             </div>
             <div class="lowerContact__contentButton">
-              <NuxtLink to="/contact/confirm" class="lowerContact__button">入力内容を確認する</NuxtLink>
+              <!-- <NuxtLink to="/contact/confirm" class="lowerContact__button">入力内容を確認する</NuxtLink> -->
+              <button type="submit" class="lowerContact__button">入力内容を確認する</button>
             </div>
-          </form>
+          </Form>
         </div>
       </div>
     </div>
@@ -44,6 +57,24 @@
 </template>
 
 <script setup lang="ts">
+import { Field, Form, ErrorMessage } from 'vee-validate';
+import * as yup from 'yup';
+
+// 電話番号正規表現
+const phoneRegExp = /^0[-0-9]{9,12}$/
+
+const customErrorMessage = {
+  required: '必須項目です。',
+}
+
+const schema = yup.object({
+  name: yup.string().trim().required(customErrorMessage.required).max(100),
+  company: yup.string().trim().required(customErrorMessage.required).max(100),
+  email: yup.string().trim().required(customErrorMessage.required).email(),
+  tel: yup.string().trim().required(customErrorMessage.required).matches(phoneRegExp, { message: '有効な電話番号を入力してください。' }),
+  content: yup.string().trim().required(customErrorMessage.required).max(3000)
+});
+
 
 const lowerMainViewTitle: string = 'お問い合わせ'
 const lowerMainViewTitleRuby: string = 'CONTACT'
@@ -57,6 +88,10 @@ const formData = formState();
 <style lang="scss">
 [v-cloak] {
   display: none;
+}
+
+.error {
+  color: red;
 }
 
 .lowerContact {
