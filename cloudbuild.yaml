@@ -9,6 +9,7 @@ steps:
       - 'API_KEY=$_API_KEY'
       - '--build-arg'
       - 'SERVICE_DOMAIN=$_SERVICE_DOMAIN'
+      - 'SENDGRID_API_KEY=$_SENDGRID_API_KEY'
       - .
       - '-f'
       - Dockerfile
