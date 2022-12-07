@@ -86,9 +86,8 @@
               <button v-if="(currentStep !== 1)" type="submit" class="lowerContact__button ">入力内容を確認する</button>
               <button v-if="(currentStep === 1)" type="submit" class="lowerContact__button">送信する</button>
             </div>
-
-            <pre>{{ values }}</pre>
           </Form>
+
         </div>
       </div>
     </div>
@@ -121,62 +120,27 @@ const lowerMainViewTitleRuby: string = 'CONTACT'
 provide('lowerMainViewTitle', lowerMainViewTitle)
 provide('lowerMainViewTitleRuby', lowerMainViewTitleRuby)
 
-const formData = formState();
 
 
 const currentStep = ref(0)
-
-const sendMail = (values: any) => {
-  const sgMail = require('@sendgrid/mail')
-  sgMail.setApiKey(config.sendGridApiKey)
-  const msg = {
-    to: values.email, // Change to your recipient
-    from: 'info@3s-code.jp', // Change to your verified sender
-    subject: 'お問い合わせありがとうございます。',
-    text: `
-    ${values.company}\n
-    ${values.name}様\n
-    \n
-    お問い合わせいただきありがとうございます。\n
-    以下の内容で受け付けいたしました。\n
-    \n
-    1営業日以内にご連絡いたします。\n
-    \n
-    お問い合わせ内容ーーーーーー\n
-    \n
-    会社名:\n
-    ${values.company}\n
-    \n
-    ご担当者名:\n
-    ${values.name}\n
-    \n
-    メールアドレス:\n
-    ${values.email}\n
-    \n
-    電話番号:\n
-    ${values.tel}\n
-    \n
-    ご相談内容:\n
-    ${values.content}\n
-    \n
-    ーーーーーーーーーーーーーー\n
-    \n
-    `,
-
-  }
-  sgMail
-    .send(msg)
-    .then(() => {
-      console.log('Email sent')
-    })
-    .catch((error: any) => {
-      console.error(error)
-    })
+const navigate = () => {
+  return navigateTo({
+    path: '/contact/complete',
+  });
 }
 
 const nextStep = (values: any) => {
   if (currentStep.value === 1) {
-    sendMail(values)
+    const body = values;
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(body),
+      headers: { 'Content-Type': 'application/json' },
+    }
+    fetch('https://asia-northeast1-site-3scode.cloudfunctions.net/function-1', options)
+      // .then(res => res.json())
+      // .then(json => console.log(json))
+      .then(() => { navigate() });
     return
   }
 
@@ -192,29 +156,6 @@ const prevStep = () => {
 }
 
 
-
-
-
-
-const config = useRuntimeConfig()
-
-// const sgMail = require('@sendgrid/mail')
-// sgMail.setApiKey(config.sendGridApiKey)
-// const msg = {
-//   to: '3scode.osaka@gmail.com', // Change to your recipient
-//   from: 'info@3s-code.jp', // Change to your verified sender
-//   subject: 'テストです',
-//   text: '環境変数のテストです。',
-
-// }
-// sgMail
-//   .send(msg)
-//   .then(() => {
-//     console.log('Email sent')
-//   })
-//   .catch((error) => {
-//     console.error(error)
-//   })
 
 </script>
 
