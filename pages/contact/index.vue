@@ -3,44 +3,91 @@
     <div class="lowerContact">
       <div class="minInner lowerContact__inner">
         <div class="lowerContact__textArea">
-          <p class="lowerContact__text">3Scodeにご関心をお持ちいただきまして、ありがとうございます。</p>
-          <p class="lowerContact__text">お見積りやサービスに関するお問い合わせ、ご相談はこちらから承っております。</p>
-          <p class="lowerContact__text">24時間以内に返答させていただきます。</p>
+          <template v-if="(currentStep === 0)">
+            <p class="lowerContact__text">3Scodeにご関心をお持ちいただきまして、ありがとうございます。</p>
+            <p class="lowerContact__text">お見積りやサービスに関するお問い合わせ、ご相談はこちらから承っております。</p>
+            <!-- <p class="lowerContact__text">24時間以内に返答させていただきます。</p> -->
+          </template>
+          <template v-if="(currentStep === 1)">
+            <p class="lowerContact__text">以下の内容で送信します。</p>
+            <p class="lowerContact__text">内容をご確認いただき、よろしければ送信ボタンを押してください。</p>
+          </template>
         </div>
         <div class="lowerContact__content">
-          <Form :validation-schema="schema">
+          <Form @submit="nextStep" :validation-schema="schema" keep-values v-slot="{ handleSubmit, values }">
             <div class="lowerContact__contentForm">
               <div class="lowerContact__inputText">
                 <p class="lowerContact__inputTitle lowerContact__inputTitle--required">会社名</p>
-                <Field type="text" name="company" v-model="formData.company" placeholder="個人事業主の方は屋号をご入力ください。" />
-                <ErrorMessage class="error" name="company" />
+                <!-- <Field type="text" name="company" v-model="formData.company" placeholder="個人事業主の方は屋号をご入力ください。" />
+                <ErrorMessage class="error" name="company" /> -->
+                <template v-if="(currentStep === 0)">
+                  <Field type="text" name="company" placeholder="個人事業主の方は屋号をご入力ください。" />
+                  <ErrorMessage class="error" name="company" />
+                </template>
+                <template v-if="(currentStep === 1)">
+                  <p class="lowerContact__confirmText">{{ values.company }}</p>
+                </template>
               </div>
               <div class="lowerContact__inputText">
-                <p class="lowerContact__inputTitle lowerContact__inputTitle--required">ご担当社名</p>
-                <Field type="text" name="name" v-model="formData.name" placeholder="例）山田太郎" />
-                <ErrorMessage class="error" name="name" />
+                <p class="lowerContact__inputTitle lowerContact__inputTitle--required">ご担当者名</p>
+                <!-- <Field type="text" name="name" v-model="formData.name" placeholder="例）山田太郎" />
+                <ErrorMessage class="error" name="name" /> -->
+                <template v-if="(currentStep === 0)">
+                  <Field type="text" name="name" placeholder="例）山田太郎" />
+                  <ErrorMessage class="error" name="name" />
+                </template>
+                <template v-if="(currentStep === 1)">
+                  <p class="lowerContact__confirmText">{{ values.name }}</p>
+                </template>
               </div>
               <div class="lowerContact__inputText">
                 <p class="lowerContact__inputTitle lowerContact__inputTitle--required">メールアドレス</p>
-                <Field type="email" name="email" v-model="formData.email" placeholder="例）contact@3scode.co.jp" />
-                <ErrorMessage class="error" name="email" />
+                <!-- <Field type="email" name="email" v-model="formData.email" placeholder="例）contact@3scode.co.jp" />
+                <ErrorMessage class="error" name="email" /> -->
+                <template v-if="(currentStep === 0)">
+                  <Field type="email" name="email" placeholder="例）contact@3scode.co.jp" />
+                  <ErrorMessage class="error" name="email" />
+                </template>
+                <template v-if="(currentStep === 1)">
+                  <p class="lowerContact__confirmText">{{ values.email }}</p>
+                </template>
               </div>
               <div class="lowerContact__inputText">
                 <p class="lowerContact__inputTitle lowerContact__inputTitle--required">電話番号</p>
-                <Field type="tel" name="tel" v-model="formData.tel" placeholder="例）080-1234-5678" />
-                <ErrorMessage class="error" name="tel" />
+                <!-- <Field type="tel" name="tel" v-model="formData.tel" placeholder="例）080-1234-5678" />
+                <ErrorMessage class="error" name="tel" /> -->
+                <template v-if="(currentStep === 0)">
+                  <Field type="tel" name="tel" placeholder="例）080-1234-5678" />
+                  <ErrorMessage class="error" name="tel" />
+                </template>
+                <template v-if="(currentStep === 1)">
+                  <p class="lowerContact__confirmText">{{ values.tel }}</p>
+                </template>
               </div>
               <div class="lowerContact__inputText">
                 <p class="lowerContact__inputTitle lowerContact__inputTitle--required">ご相談内容</p>
-                <Field as="textarea" row="30" cols="30" name="content" v-model="formData.content"
+                <!-- <Field as="textarea" row="30" cols="30" name="content" v-model="formData.content"
                   placeholder="お問い合わせやご相談内容をご入力ください。" />
-                <ErrorMessage class="error" name="content" />
-                <p class="lowerContact__note">※詳しく書いていただくとご希望に合ったご提案ができます。</p>
+                <ErrorMessage class="error" name="content" /> -->
+                <template v-if="(currentStep === 0)">
+                  <Field as="textarea" row="30" cols="30" name="content" placeholder="お問い合わせやご相談内容をご入力ください。" />
+                  <ErrorMessage class="error" name="content" />
+                </template>
+                <template v-if="(currentStep === 1)">
+                  <p class="lowerContact__confirmText">{{ values.content }}</p>
+                </template>
+                <!-- <p class="lowerContact__note">※詳しく書いていただくとご希望に合ったご提案ができます。</p> -->
               </div>
             </div>
             <div class="lowerContact__contentButton">
-              <button type="submit" class="lowerContact__button">入力内容を確認する</button>
+
+              <button v-if="(currentStep !== 0)" @click="prevStep" type="submit"
+                class="lowerContact__button lowerContact__button--return">入力画面に戻る</button>
+              <button v-if="(currentStep !== 1)" type="submit" class="lowerContact__button ">入力内容を確認する</button>
+              <button v-if="(currentStep === 1)" type="submit" class="lowerContact__button">送信する</button>
             </div>
+
+            <pre>{{ values }}</pre>
           </Form>
         </div>
       </div>
@@ -50,7 +97,7 @@
 </template>
 
 <script setup lang="ts">
-import { Field, Form, ErrorMessage } from 'vee-validate';
+import { Field, Form, ErrorMessage, useFormValues } from 'vee-validate';
 import * as yup from 'yup';
 
 // 電話番号正規表現
@@ -77,35 +124,110 @@ provide('lowerMainViewTitleRuby', lowerMainViewTitleRuby)
 const formData = formState();
 
 
+const currentStep = ref(0)
+
+const sendMail = (values: any) => {
+  const sgMail = require('@sendgrid/mail')
+  sgMail.setApiKey(config.sendGridApiKey)
+  const msg = {
+    to: values.email, // Change to your recipient
+    from: 'info@3s-code.jp', // Change to your verified sender
+    subject: 'お問い合わせありがとうございます。',
+    text: `
+    ${values.company}\n
+    ${values.name}様\n
+    \n
+    お問い合わせいただきありがとうございます。\n
+    以下の内容で受け付けいたしました。\n
+    \n
+    1営業日以内にご連絡いたします。\n
+    \n
+    お問い合わせ内容ーーーーーー\n
+    \n
+    会社名:\n
+    ${values.company}\n
+    \n
+    ご担当者名:\n
+    ${values.name}\n
+    \n
+    メールアドレス:\n
+    ${values.email}\n
+    \n
+    電話番号:\n
+    ${values.tel}\n
+    \n
+    ご相談内容:\n
+    ${values.content}\n
+    \n
+    ーーーーーーーーーーーーーー\n
+    \n
+    `,
+
+  }
+  sgMail
+    .send(msg)
+    .then(() => {
+      console.log('Email sent')
+    })
+    .catch((error: any) => {
+      console.error(error)
+    })
+}
+
+const nextStep = (values: any) => {
+  if (currentStep.value === 1) {
+    sendMail(values)
+    return
+  }
+
+  currentStep.value++
+}
+
+const prevStep = () => {
+  if (currentStep.value <= 0) {
+    return
+  }
+
+  currentStep.value--
+}
+
+
 
 
 
 
 const config = useRuntimeConfig()
 
-const sgMail = require('@sendgrid/mail')
-sgMail.setApiKey(config.sendGridApiKey)
-const msg = {
-  to: '3scode.osaka@gmail.com', // Change to your recipient
-  from: 'info@3s-code.jp', // Change to your verified sender
-  subject: 'テストです',
-  text: '環境変数のテストです。',
+// const sgMail = require('@sendgrid/mail')
+// sgMail.setApiKey(config.sendGridApiKey)
+// const msg = {
+//   to: '3scode.osaka@gmail.com', // Change to your recipient
+//   from: 'info@3s-code.jp', // Change to your verified sender
+//   subject: 'テストです',
+//   text: '環境変数のテストです。',
 
-}
-sgMail
-  .send(msg)
-  .then(() => {
-    console.log('Email sent')
-  })
-  .catch((error) => {
-    console.error(error)
-  })
+// }
+// sgMail
+//   .send(msg)
+//   .then(() => {
+//     console.log('Email sent')
+//   })
+//   .catch((error) => {
+//     console.error(error)
+//   })
 
 </script>
 
 <style lang="scss">
 [v-cloak] {
   display: none;
+}
+
+.lowerContact__confirmText {
+  font-size: rem(16);
+  color: #666666;
+  margin-top: rem(18);
+  line-height: 2;
 }
 
 .error {
@@ -123,7 +245,9 @@ sgMail
 
 .lowerContact__inner {}
 
-.lowerContact__textArea {}
+.lowerContact__textArea {
+  padding-left: rem(20);
+}
 
 .lowerContact__text {
   font-size: rem(18);
@@ -225,8 +349,18 @@ sgMail
 }
 
 .lowerContact__contentButton {
-  margin-top: rem(30);
+  margin-top: rem(50);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: rem(30);
+
+  @include mq(md) {
+    column-gap: 30px;
+    justify-content: center;
+    flex-direction: row;
+  }
 }
 
 .lowerContact__button {
@@ -246,7 +380,7 @@ sgMail
 
   @include mq(md) {
     font-size: rem(12);
-    max-width: rem(150);
+    max-width: rem(200);
     font-weight: $normal;
     padding-top: rem(12);
     padding-bottom: rem(12);
