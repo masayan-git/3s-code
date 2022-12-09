@@ -31,9 +31,9 @@
   </section>
 </template>
 
-<script setup>
-const lowerMainViewTitle = '料金'
-const lowerMainViewTitleRuby = 'PRICE'
+<script setup lang="ts">
+const lowerMainViewTitle: string = '料金'
+const lowerMainViewTitleRuby: string = 'PRICE'
 
 provide('lowerMainViewTitle', lowerMainViewTitle)
 provide('lowerMainViewTitleRuby', lowerMainViewTitleRuby)

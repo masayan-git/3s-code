@@ -15,19 +15,17 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const config = useRuntimeConfig()
-const lowerMainViewTitle = '制作実績'
-const lowerMainViewTitleRuby = 'WORKS'
+const lowerMainViewTitle: string = '制作実績'
+const lowerMainViewTitleRuby: string = 'WORKS'
 provide('lowerMainViewTitle', lowerMainViewTitle)
 provide('lowerMainViewTitleRuby', lowerMainViewTitleRuby)
 
-const buttonText = '実績一覧を見る'
-const buttonSlug = '/blog'
+const buttonText: string = '実績一覧を見る'
+const buttonSlug: string = '/blog'
 provide('buttonText', buttonText)
 provide('buttonSlug', buttonSlug)
-
-const array = inject('array')
 
 //microCMSから引っ張ってきた記事情報
 const { data } = await useFetch("/works?limit=3", {

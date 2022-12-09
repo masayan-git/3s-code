@@ -14,15 +14,15 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const config = useRuntimeConfig()
-const lowerMainViewTitle = 'ブログ'
-const lowerMainViewTitleRuby = 'BLOG'
+const lowerMainViewTitle: string = 'ブログ'
+const lowerMainViewTitleRuby: string = 'BLOG'
 provide('lowerMainViewTitle', lowerMainViewTitle)
 provide('lowerMainViewTitleRuby', lowerMainViewTitleRuby)
 
-const buttonText = '記事一覧を見る'
-const buttonSlug = '/blog'
+const buttonText: string = '記事一覧を見る'
+const buttonSlug: string = '/blog'
 provide('buttonText', buttonText)
 provide('buttonSlug', buttonSlug)
 

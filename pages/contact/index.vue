@@ -6,7 +6,6 @@
           <template v-if="(currentStep === 0)">
             <p class="lowerContact__text">3Scodeにご関心をお持ちいただきまして、ありがとうございます。</p>
             <p class="lowerContact__text">お見積りやサービスに関するお問い合わせ、ご相談はこちらから承っております。</p>
-            <!-- <p class="lowerContact__text">24時間以内に返答させていただきます。</p> -->
           </template>
           <template v-if="(currentStep === 1)">
             <p class="lowerContact__text">以下の内容で送信します。</p>
@@ -18,8 +17,6 @@
             <div class="lowerContact__contentForm">
               <div class="lowerContact__inputText">
                 <p class="lowerContact__inputTitle lowerContact__inputTitle--required">会社名</p>
-                <!-- <Field type="text" name="company" v-model="formData.company" placeholder="個人事業主の方は屋号をご入力ください。" />
-                <ErrorMessage class="error" name="company" /> -->
                 <template v-if="(currentStep === 0)">
                   <Field type="text" name="company" placeholder="個人事業主の方は屋号をご入力ください。" />
                   <ErrorMessage class="error" name="company" />
@@ -30,8 +27,6 @@
               </div>
               <div class="lowerContact__inputText">
                 <p class="lowerContact__inputTitle lowerContact__inputTitle--required">ご担当者名</p>
-                <!-- <Field type="text" name="name" v-model="formData.name" placeholder="例）山田太郎" />
-                <ErrorMessage class="error" name="name" /> -->
                 <template v-if="(currentStep === 0)">
                   <Field type="text" name="name" placeholder="例）山田太郎" />
                   <ErrorMessage class="error" name="name" />
@@ -42,8 +37,6 @@
               </div>
               <div class="lowerContact__inputText">
                 <p class="lowerContact__inputTitle lowerContact__inputTitle--required">メールアドレス</p>
-                <!-- <Field type="email" name="email" v-model="formData.email" placeholder="例）contact@3scode.co.jp" />
-                <ErrorMessage class="error" name="email" /> -->
                 <template v-if="(currentStep === 0)">
                   <Field type="email" name="email" placeholder="例）contact@3scode.co.jp" />
                   <ErrorMessage class="error" name="email" />
@@ -54,8 +47,6 @@
               </div>
               <div class="lowerContact__inputText">
                 <p class="lowerContact__inputTitle lowerContact__inputTitle--required">電話番号</p>
-                <!-- <Field type="tel" name="tel" v-model="formData.tel" placeholder="例）080-1234-5678" />
-                <ErrorMessage class="error" name="tel" /> -->
                 <template v-if="(currentStep === 0)">
                   <Field type="tel" name="tel" placeholder="例）080-1234-5678" />
                   <ErrorMessage class="error" name="tel" />
@@ -66,9 +57,6 @@
               </div>
               <div class="lowerContact__inputText">
                 <p class="lowerContact__inputTitle lowerContact__inputTitle--required">ご相談内容</p>
-                <!-- <Field as="textarea" row="30" cols="30" name="content" v-model="formData.content"
-                  placeholder="お問い合わせやご相談内容をご入力ください。" />
-                <ErrorMessage class="error" name="content" /> -->
                 <template v-if="(currentStep === 0)">
                   <Field as="textarea" row="30" cols="30" name="content" placeholder="お問い合わせやご相談内容をご入力ください。" />
                   <ErrorMessage class="error" name="content" />
@@ -76,7 +64,6 @@
                 <template v-if="(currentStep === 1)">
                   <p class="lowerContact__confirmText">{{ values.content }}</p>
                 </template>
-                <!-- <p class="lowerContact__note">※詳しく書いていただくとご希望に合ったご提案ができます。</p> -->
               </div>
             </div>
             <div class="lowerContact__contentButton">
@@ -87,7 +74,6 @@
               <button v-if="(currentStep === 1)" type="submit" class="lowerContact__button">送信する</button>
             </div>
           </Form>
-
         </div>
       </div>
     </div>
@@ -102,10 +88,12 @@ import * as yup from 'yup';
 // 電話番号正規表現
 const phoneRegExp = /^0[-0-9]{9,12}$/
 
+//バリデーションエラーメッセージ
 const customErrorMessage = {
   required: '必須項目です。',
 }
 
+//バリデーション
 const schema = yup.object({
   name: yup.string().trim().required(customErrorMessage.required).max(100),
   company: yup.string().trim().required(customErrorMessage.required).max(100),
@@ -114,30 +102,31 @@ const schema = yup.object({
   content: yup.string().trim().required(customErrorMessage.required).max(3000)
 });
 
-
 const lowerMainViewTitle: string = 'お問い合わせ'
 const lowerMainViewTitleRuby: string = 'CONTACT'
 provide('lowerMainViewTitle', lowerMainViewTitle)
 provide('lowerMainViewTitleRuby', lowerMainViewTitleRuby)
 
-
-
 const currentStep = ref(0)
+
+//完了画面へ遷移させる
 const navigate = () => {
   return navigateTo({
     path: '/contact/complete',
   });
 }
 
+//スクロール位置をトップへ移動させる
+const scrollTop = () => {
+  window.scroll({ top: 0, behavior: 'smooth' })
+}
+
 const nextStep = (values: any) => {
   if (currentStep.value === 0) {
-    const scrollY = window.scrollY || window.pageYOffset
-    window.scrollTo({
-      top: scrollY,
-      behavior: 'smooth'
-    })
+    scrollTop()
   }
   if (currentStep.value === 1) {
+    //メール送信のためcloud functionsへhttp通信
     const body = values;
     const options = {
       method: 'POST',
@@ -145,12 +134,10 @@ const nextStep = (values: any) => {
       headers: { 'Content-Type': 'application/json' },
     }
     fetch('https://asia-northeast1-site-3scode.cloudfunctions.net/function-1', options)
-      // .then(res => res.json())
-      // .then(json => console.log(json))
+      //送信が完了したら完了画面へ遷移させる
       .then(() => { navigate() });
     return
   }
-
   currentStep.value++
 }
 
@@ -158,13 +145,9 @@ const prevStep = () => {
   if (currentStep.value <= 0) {
     return
   }
-
+  scrollTop()
   currentStep.value--
 }
-
-
-const formData = formState()
-
 
 </script>
 

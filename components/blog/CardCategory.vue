@@ -2,11 +2,10 @@
   <span class="blog__cardCategory">{{ category.category.name }}</span>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const category = defineProps({
   category: Object
 })
-
 </script>
 
 <style lang="scss">

@@ -2,7 +2,7 @@
   <div class="sideBar__profile">
     <div class="sideBar__profileInner">
       <div class="sideBar__profileImage">
-        <img src="@/public/top/noimage1.png" alt="">
+        <img src="/top/noimage1.png" alt="">
       </div>
       <h2 class="sideBar__profileName">まさやん</h2>
       <div class="sideBar__profileTextArea">
@@ -16,14 +16,14 @@
       </div>
       <div class="sideBar__profileSns">
         <a href="" class="sideBar__profileSnsIcon">
-          <img src="@/public/blog/Instagram.svg" alt="">
+          <img src="/blog/Instagram.svg" alt="">
         </a>
       </div>
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 
 </script>
 

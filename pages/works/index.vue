@@ -14,9 +14,9 @@
 
 </template>
 
-<script setup>
+<script setup lang="ts">
 const config = useRuntimeConfig()
-const { data } = await useFetch("/works?limit=100", {
+const { data }: any = await useFetch("/works?limit=100", {
   baseURL: config.serviceDomain,
   headers: {
     "X-MICROCMS-API-KEY": config.apiKey,
@@ -31,7 +31,6 @@ const worksCardItems = computed(() => {
 const worksIsMore = () => {
   worksCount.value += 6
 }
-
 
 </script>
 

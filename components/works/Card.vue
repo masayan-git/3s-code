@@ -23,8 +23,7 @@
   </article>
 </template>
 
-<script setup>
-
+<script setup lang="ts">
 
 const content = defineProps({
   content: Object

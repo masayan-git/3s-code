@@ -35,7 +35,7 @@
   </header>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const isActive = ref(false)
 
 </script>

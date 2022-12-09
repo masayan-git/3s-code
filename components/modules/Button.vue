@@ -2,7 +2,7 @@
   <NuxtLink :to=buttonSlug class="button">{{ buttonText }}<span></span></NuxtLink>
 </template>
 
-<script setup>
+<script setup land="ts">
 const buttonText = inject('buttonText')
 const buttonSlug = inject('buttonSlug')
 </script>

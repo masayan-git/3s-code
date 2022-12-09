@@ -13,9 +13,9 @@
   <ModulesFooter />
 </template>
 
-<script setup>
-const lowerMainViewTitle = 'ブログ'
-const lowerMainViewTitleRuby = 'BLOG'
+<script setup lang="ts">
+const lowerMainViewTitle: string = 'ブログ'
+const lowerMainViewTitleRuby: string = 'BLOG'
 
 provide('lowerMainViewTitle', lowerMainViewTitle)
 provide('lowerMainViewTitleRuby', lowerMainViewTitleRuby)

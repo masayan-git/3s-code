@@ -3,7 +3,7 @@
 
 </template>
 
-<script setup>
+<script setup lang="ts">
 const returnButtonText = inject('returnButtonText')
 const returnButtonSlug = inject('returnButtonSlug')
 

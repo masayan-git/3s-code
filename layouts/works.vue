@@ -10,9 +10,9 @@
 
 </template>
 
-<script setup>
-const lowerMainViewTitle = '制作実績'
-const lowerMainViewTitleRuby = 'WORKS'
+<script setup lang="ts">
+const lowerMainViewTitle: string = '制作実績'
+const lowerMainViewTitleRuby: string = 'WORKS'
 provide('lowerMainViewTitle', lowerMainViewTitle)
 provide('lowerMainViewTitleRuby', lowerMainViewTitleRuby)
 </script>

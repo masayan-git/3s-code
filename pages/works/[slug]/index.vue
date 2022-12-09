@@ -54,23 +54,21 @@
   </div>
 </template>
 
-<script setup>
-const buttonText = '制作実績一覧を見る'
-const buttonSlug = '/works'
+<script setup lang="ts">
+const buttonText: string = '制作実績一覧を見る'
+const buttonSlug: string = '/works'
 provide('buttonText', buttonText)
 provide('buttonSlug', buttonSlug)
 
 const config = useRuntimeConfig()
 const route = useRoute();
 const slug = route.params.slug;
-const { data: content } = await useFetch(`/works/${slug}`, {
+const { data: content }: any = await useFetch(`/works/${slug}`, {
   baseURL: config.serviceDomain,
   headers: {
     "X-MICROCMS-API-KEY": config.apiKey,
   },
 });
-
-
 </script>
 
 

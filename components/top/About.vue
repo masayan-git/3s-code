@@ -59,9 +59,9 @@
   </section>
 </template>
 
-<script setup>
-const lowerMainViewTitle = '3scode について'
-const lowerMainViewTitleRuby = 'ABOUT'
+<script setup lang="ts">
+const lowerMainViewTitle: string = '3scode について'
+const lowerMainViewTitleRuby: string = 'ABOUT'
 
 provide('lowerMainViewTitle', lowerMainViewTitle)
 provide('lowerMainViewTitleRuby', lowerMainViewTitleRuby)

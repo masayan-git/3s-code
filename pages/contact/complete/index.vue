@@ -13,7 +13,6 @@
       </div>
     </div>
   </NuxtLayout>
-
 </template>
 
 <script setup lang="ts">
@@ -21,12 +20,11 @@ const lowerMainViewTitle: string = 'お問い合わせ'
 const lowerMainViewTitleRuby: string = 'CONTACT'
 provide('lowerMainViewTitle', lowerMainViewTitle)
 provide('lowerMainViewTitleRuby', lowerMainViewTitleRuby)
-const buttonText = 'TOPへ戻る'
-const buttonSlug = '/'
+
+const buttonText: string = 'TOPへ戻る'
+const buttonSlug: string = '/'
 provide('buttonText', buttonText)
 provide('buttonSlug', buttonSlug)
-
-
 </script>
 
 <style lang="scss">

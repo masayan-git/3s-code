@@ -34,9 +34,9 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const config = useRuntimeConfig()
-const { data: category } = await useFetch("/categories", {
+const { data: category }: any = await useFetch("/categories", {
   baseURL: config.serviceDomain,
   headers: {
     "X-MICROCMS-API-KEY": config.apiKey,
@@ -114,7 +114,7 @@ const { data: category } = await useFetch("/categories", {
     display: block;
     width: rem(16);
     height: rem(16);
-    background-image: url("@/public/blog/category-arrow.svg");
+    background-image: url("/blog/category-arrow.svg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -155,7 +155,7 @@ const { data: category } = await useFetch("/categories", {
     display: inline-block;
     width: rem(12);
     height: rem(12);
-    background-image: url("@/public/blog/tag-icon.svg");
+    background-image: url("/blog/tag-icon.svg");
     position: absolute;
     left: rem(5);
     top: 0;

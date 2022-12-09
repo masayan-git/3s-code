@@ -7,14 +7,14 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const content = defineProps({
   content: Object
 })
 
 const count = ref(5)
 const cardItems = computed(() => {
-  const card = content.content
+  const card: any = content.content
   return card.slice(0, count.value)
 })
 

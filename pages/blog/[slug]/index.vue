@@ -28,15 +28,12 @@
   </NuxtLayout>
 </template>
 
-<script setup>
-
-const blogCardCategory = 'SEOライティング'
-provide('blogCardCategory', blogCardCategory)
+<script setup lang="ts">
 
 const config = useRuntimeConfig()
 const route = useRoute();
 const slug = route.params.slug;
-const { data: content } = await useFetch(`/blog/${slug}`, {
+const { data: content }: any = await useFetch(`/blog/${slug}`, {
   baseURL: config.serviceDomain,
   headers: {
     "X-MICROCMS-API-KEY": config.apiKey,
@@ -45,14 +42,14 @@ const { data: content } = await useFetch(`/blog/${slug}`, {
 const publishedAt = content.value.publishedAt
 const publishedDate = publishedAt.substring(0, publishedAt.indexOf("T")).replace(/-/g, '.')
 
-const { data: prev } = await useFetch(`/blog?orders=publishedAt;filters=publishedAt[less_than]${content.value.publishedAt};limit=1`, {
+const { data: prev }: any = await useFetch(`/blog?orders=publishedAt;filters=publishedAt[less_than]${content.value.publishedAt};limit=1`, {
   baseURL: config.serviceDomain,
   headers: {
     "X-MICROCMS-API-KEY": config.apiKey,
   },
 });
 
-const { data: next } = await useFetch(`/blog?orders=publishedAt;filters=publishedAt[greater_than]${content.value.publishedAt};limit=1`, {
+const { data: next }: any = await useFetch(`/blog?orders=publishedAt;filters=publishedAt[greater_than]${content.value.publishedAt};limit=1`, {
   baseURL: config.serviceDomain,
   headers: {
     "X-MICROCMS-API-KEY": config.apiKey,
@@ -74,7 +71,6 @@ provide('buttonText', buttonText)
 if (next.value.contents[0] != null) {
   const buttonSlug = `/blog/${next.value.contents[0].id}`
   provide('buttonSlug', buttonSlug)
-
 }
 
 </script>

@@ -37,9 +37,9 @@
 
 </template>
 
-<script setup>
-const lowerMainViewTitle = 'サービス'
-const lowerMainViewTitleRuby = 'SERVICE'
+<script setup lang="ts">
+const lowerMainViewTitle: string = 'サービス'
+const lowerMainViewTitleRuby: string = 'SERVICE'
 
 provide('lowerMainViewTitle', lowerMainViewTitle)
 provide('lowerMainViewTitleRuby', lowerMainViewTitleRuby)

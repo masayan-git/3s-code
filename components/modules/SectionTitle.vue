@@ -3,7 +3,7 @@
   <h2 :data-ruby=lowerMainViewTitleRuby class="section__title">{{ lowerMainViewTitle }}</h2>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const lowerMainViewTitle = inject('lowerMainViewTitle')
 const lowerMainViewTitleRuby = inject('lowerMainViewTitleRuby')
 </script>

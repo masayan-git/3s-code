@@ -15,14 +15,13 @@
   </article>
 </template>
 
-<script setup>
-const content = defineProps({
+<script setup lang="ts">
+const content: any = defineProps({
   content: Object
 })
 
 const cardDescriptionHtml = content.content.content
 const cardDescriptionText = cardDescriptionHtml.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '').substring(0, 58).concat('…')
-
 
 </script>
 
