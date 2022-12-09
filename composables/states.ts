@@ -2,7 +2,7 @@ export const formState = () =>
   useState('contact', () => {
     return {
       company: '',
-      name: 'testname',
+      name: '',
       email: '',
       tel: '',
       content: '',

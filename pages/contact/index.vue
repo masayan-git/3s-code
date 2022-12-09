@@ -130,6 +130,13 @@ const navigate = () => {
 }
 
 const nextStep = (values: any) => {
+  if (currentStep.value === 0) {
+    const scrollY = window.scrollY || window.pageYOffset
+    window.scrollTo({
+      top: scrollY,
+      behavior: 'smooth'
+    })
+  }
   if (currentStep.value === 1) {
     const body = values;
     const options = {
@@ -155,6 +162,8 @@ const prevStep = () => {
   currentStep.value--
 }
 
+
+const formData = formState()
 
 
 </script>
