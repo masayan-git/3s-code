@@ -61,7 +61,7 @@ const worksIsMore = () => {
 
 .lowerWorks__inner {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(rem(300), 1fr));
+  grid-template-columns: repeat(3, 1fr);
   row-gap: rem(30);
   column-gap: rem(30);
 }
