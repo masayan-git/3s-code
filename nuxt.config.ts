@@ -14,8 +14,9 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'format-detection', content: 'telephone=no' }
       ],
-      title: '3Scode',
+      // title: '3Scode',
       link: [
+        { rel: 'icon', type: 'image/png', href: '/favicon/favicon.png' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
         {

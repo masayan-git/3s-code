@@ -34,4 +34,12 @@ for (let i = 0; i < contentsObj.length; i++) {
     content.push(contentsObj[i])
   }
 }
+
+//SEO対策
+useHead({
+  meta: [
+    //カテゴリーアーカイブはnoindex
+    { name: 'robots', content: 'noindex' }
+  ]
+})
 </script>

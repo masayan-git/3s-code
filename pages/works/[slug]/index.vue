@@ -69,6 +69,11 @@ const { data: content }: any = await useFetch(`/works/${slug}`, {
     "X-MICROCMS-API-KEY": config.apiKey,
   },
 });
+
+useHead({
+  title: content.value.title,
+})
+
 </script>
 
 

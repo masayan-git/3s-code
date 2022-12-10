@@ -30,6 +30,7 @@
 
 <script setup lang="ts">
 
+
 const config = useRuntimeConfig()
 const route = useRoute();
 const slug = route.params.slug;
@@ -72,6 +73,16 @@ if (next.value.contents[0] != null) {
   const buttonSlug = `/blog/${next.value.contents[0].id}`
   provide('buttonSlug', buttonSlug)
 }
+
+
+//SEO対策
+useHead({
+  title: content.value.title,
+  meta: [
+    { name: 'description', content: content.value.description }
+  ]
+})
+
 
 </script>
 

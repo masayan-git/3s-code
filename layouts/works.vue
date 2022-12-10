@@ -15,6 +15,15 @@ const lowerMainViewTitle: string = '制作実績'
 const lowerMainViewTitleRuby: string = 'WORKS'
 provide('lowerMainViewTitle', lowerMainViewTitle)
 provide('lowerMainViewTitleRuby', lowerMainViewTitleRuby)
+
+//SEO対策
+useHead({
+  title: lowerMainViewTitle,
+  meta: [
+    //実績で公開しているサイトに影響が出ないようnoindexを設定
+    { name: 'robots', content: 'noindex' }
+  ]
+})
 </script>
 
 <style lang="scss">

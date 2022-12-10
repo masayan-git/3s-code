@@ -19,6 +19,11 @@ const lowerMainViewTitleRuby: string = 'BLOG'
 
 provide('lowerMainViewTitle', lowerMainViewTitle)
 provide('lowerMainViewTitleRuby', lowerMainViewTitleRuby)
+
+//SEO対策
+useHead({
+  title: lowerMainViewTitle,
+})
 </script>
 
 <style lang="scss">

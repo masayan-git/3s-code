@@ -26,6 +26,7 @@
     "@vee-validate/rules": "^4.7.3",
     "nuxt-microcms-module": "^2.0.1",
     "vee-validate": "^4.7.3",
+    "vue-gtag": "^2.0.1",
     "vue3-smooth-scroll": "^0.8.1",
     "yup": "^0.32.11",
     "yup-locale-ja": "^0.1.3"
