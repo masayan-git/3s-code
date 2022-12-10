@@ -2,26 +2,28 @@
   <footer class="footer">
     <div class="footer__wrap">
       <div class="footer__inner">
-        <h2 class="footer__logo"><a href="" class="footer__logoLink">3Scode</a></h2>
+        <h2 class="footer__logo">
+          <NuxtLink to="/" class="footer__logoLink">3Scode</NuxtLink>
+        </h2>
         <nav class="footer__nav">
           <ul class="footer__navInner">
             <li class="footer__navList">
-              <a href="" class="footer__navLink">3Scodeについて</a>
+              <NuxtLink to="/#about" class="footer__navLink">3Scodeについて</NuxtLink>
             </li>
             <li class="footer__navList">
-              <a href="" class="footer__navLink">制作実績</a>
+              <NuxtLink to="/works" class="footer__navLink">制作実績</NuxtLink>
             </li>
             <li class="footer__navList">
-              <a href="" class="footer__navLink">ブログ</a>
+              <NuxtLink to="/blog" class="footer__navLink">ブログ</NuxtLink>
             </li>
             <li class="footer__navList">
-              <a href="" class="footer__navLink">サービス</a>
+              <NuxtLink to="/#service" class="footer__navLink">サービス</NuxtLink>
             </li>
             <li class="footer__navList">
-              <a href="" class="footer__navLink">料金</a>
+              <NuxtLink to="/#price" class="footer__navLink">料金</NuxtLink>
             </li>
             <li class="footer__navList">
-              <a href="" class="footer__navLink">お問い合わせ</a>
+              <NuxtLink to="/contact" class="footer__navLink">お問い合わせ</NuxtLink>
             </li>
           </ul>
         </nav>

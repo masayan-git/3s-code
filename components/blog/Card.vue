@@ -46,7 +46,7 @@ const cardDescriptionText = cardDescriptionHtml.replace(/<("[^"]*"|'[^']*'|[^'">
 
   img {
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 
   }
 }

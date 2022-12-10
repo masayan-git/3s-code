@@ -222,6 +222,12 @@ if (next.value.contents[0] != null) {
     }
   }
 
+  a {
+    color: $main-color;
+    display: inline-block;
+    border-bottom: 1px solid $main-color;
+  }
+
   p,
   i {
     font-size: rem(15);

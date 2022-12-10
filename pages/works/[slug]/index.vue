@@ -21,19 +21,19 @@
                   <dd>{{ content.industry }}</dd>
                 </dl>
                 <dl>
-                  <dt>提供サービス</dt>
-                  <dd>{{ content.service }}</dd>
-                </dl>
-                <dl>
                   <dt>サイト種別</dt>
                   <dd>{{ content.kinds }}</dd>
+                </dl>
+                <dl>
+                  <dt>提供サービス</dt>
+                  <dd>{{ content.service }}</dd>
                 </dl>
                 <dl>
                   <dt>制作期間</dt>
                   <dd>{{ content.period }}</dd>
                 </dl>
                 <dl>
-                  <dt>担当範囲</dt>
+                  <dt>コメント</dt>
                   <dd>{{ content.comment }}</dd>
                 </dl>
               </div>
@@ -42,7 +42,7 @@
           <div class="worksSingle__other">
             <h2 class="worksSingle__otherTitle">その他の実績</h2>
             <div class="worksSingle__otherContents">
-              <WorksCard v-for="content in content.related" :content="content" />
+              <WorksCard v-for="contents in content.related" :content="contents" />
             </div>
             <div class="worksSingle__otherButton">
               <ModulesButton />
@@ -214,7 +214,8 @@ const { data: content }: any = await useFetch(`/works/${slug}`, {
 .worksSingle__otherContents {
   margin-top: rem(33);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(rem(300), 1fr));
+  // grid-template-columns: repeat(auto-fit, minmax(rem(300), 1fr));
+  grid-template-columns: repeat(3, 1fr);
   row-gap: rem(30);
   column-gap: rem(30);
 
