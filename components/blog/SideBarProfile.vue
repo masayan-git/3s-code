@@ -2,16 +2,16 @@
   <div class="sideBar__profile">
     <div class="sideBar__profileInner">
       <div class="sideBar__profileImage">
-        <img src="/top/noimage1.png" alt="">
+        <img src="/blog/profile.jpeg" alt="">
       </div>
-      <h2 class="sideBar__profileName">まさやん</h2>
+      <h2 class="sideBar__profileName">庄司 雅幸</h2>
       <div class="sideBar__profileTextArea">
         <div class="sideBar__profileTextBox">
-          <p class="sideBar__profileText">iPad大好きなiPadブロガー</p>
-          <p class="sideBar__profileText">猫4匹と暮らしつつiPadメインのガジェット活用ブログを運営しています。</p>
+          <p class="sideBar__profileText">Webコーダーとして活動しています。</p>
         </div>
         <div class="sideBar__profileTextBox">
-          <p class="sideBar__profileText"> iPadでのブログ運営やiPadのおすすめアクセサリー、アプリや使い方を中心に、iPhoneやMacBook、デスク周りの情報も発信中です。</p>
+          <p class="sideBar__profileText">Web制作会社様5社と提携し、主にコーディング業務を請け負っています。</p>
+          <p class="sideBar__profileText">技術系をメインに発信しています。</p>
         </div>
       </div>
       <div class="sideBar__profileSns">
@@ -46,6 +46,7 @@
   margin-left: auto;
 
   img {
+    height: 100%;
     object-fit: cover;
     object-position: center;
   }

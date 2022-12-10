@@ -134,7 +134,7 @@ if (next.value.contents[0] != null) {
 
   img {
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
 
 }
@@ -236,7 +236,7 @@ if (next.value.contents[0] != null) {
   }
 
   br {
-    display: none;
+    // display: none;
   }
 
   strong {

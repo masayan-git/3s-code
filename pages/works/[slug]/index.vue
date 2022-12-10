@@ -33,7 +33,7 @@
                   <dd>{{ content.period }}</dd>
                 </dl>
                 <dl>
-                  <dt>コメント</dt>
+                  <dt>担当範囲</dt>
                   <dd>{{ content.comment }}</dd>
                 </dl>
               </div>
