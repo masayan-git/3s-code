@@ -1,15 +1,5 @@
 <template>
   <article class="works__card">
-    <!-- <a href="" class="works__cardLink">
-      <div class="works__cardImage">
-        <img :src=content.content.eyecatch.url alt="">
-      </div>
-      <div class="works__cardTextArea">
-        <h1 class="works__cardTitle">{{content.content.title}}</h1>
-        <p class="works__cardTextUrl">{{content.content.url}}</p>
-      </div>
-      <p>{{content.content.id}}</p>
-    </a> -->
     <NuxtLink :to="`/works/${content.content.id}`" class="works__cardLink">
       <div class="works__cardImage">
         <img :src=content.content.eyecatch.url alt="">

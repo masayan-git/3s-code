@@ -19,6 +19,9 @@ const { data: content }: any = await useFetch("/blog?limit=1000", {
   },
 });
 
-
+//SEO対策
+useHead({
+  title: 'ブログ',
+})
 
 </script>
